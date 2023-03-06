@@ -1,3 +1,4 @@
+import { Account } from "./pages/Account/Account";
 import { Auth } from "./pages/Auth/Auth";
 import { Cart } from "./pages/Cart/Cart";
 import { ProductPage } from "./pages/ProductPage/ProductPage";
@@ -7,6 +8,7 @@ import {
   PRODUCT_ROUTE,
   AUTH_ROUTE,
   SHOP_ROUTE,
+  ACCOUNT_ROUTE,
 } from "./utils/consts";
 
 export const routes = [
@@ -26,5 +28,9 @@ export const routes = [
     path: SHOP_ROUTE,
     component: <Shop />,
     index: true,
+  },
+  {
+    path: ACCOUNT_ROUTE,
+    component: <Account />,
   },
 ];

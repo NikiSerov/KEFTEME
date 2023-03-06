@@ -29,7 +29,7 @@ export const RegisterForm = () => {
           className={s.input}
           placeholder="Password"
         />
-        <input type="submit" className={s.submit} value="Submit" />
+        <input type="submit" className={s.submit} value="Register" />
       </form>
     </div>
   );

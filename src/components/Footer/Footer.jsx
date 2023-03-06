@@ -4,18 +4,15 @@ import {
   LinkedinOutlined,
 } from "@ant-design/icons";
 import { Input, Button } from "antd";
-import { Link } from "react-router-dom";
-import { SHOP_ROUTE } from "../../utils/consts";
 import s from "./Footer.module.scss";
 import cn from "classnames";
+import { Logo } from "../Logo/Logo";
 
 export const Footer = () => {
   const instIconClasses = cn(s.socialIcon, s.socialIconInst);
   return (
     <div className={s.footer}>
-      <Link to={SHOP_ROUTE} className={s.logo}>
-        KEFTEME
-      </Link>
+      <Logo />
       <div className={s.subscribeContainer}>
         <span className={s.inputLabel}>Subscribe to get latest updates</span>
         <Input.Group size="large" compact>
