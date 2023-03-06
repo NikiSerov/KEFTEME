@@ -1,0 +1,43 @@
+@import "../../styles/variables.module.scss";
+
+.loginFormContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formHeading {
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.input {
+    font-size: 18px;
+    border: 1px solid $lightGrey;
+    padding: 5px 10px;
+    width: 100%;
+
+    &:focus {
+        outline: 1px solid black;
+    }
+}
+
+.submit {
+    background-color: $magenta;
+    color: white;
+    font-size: 16px;
+    line-height: 25px;
+    padding: 7px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: $lighterMagenta;
+    }
+}

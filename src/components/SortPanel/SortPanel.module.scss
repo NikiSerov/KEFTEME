@@ -1,0 +1,12 @@
+@import "../../styles/variables.module.scss";
+
+.sortPanel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.productsCount {
+    font-size: 18px;
+}
