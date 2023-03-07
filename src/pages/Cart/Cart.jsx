@@ -1,6 +1,10 @@
-import { Button } from "antd";
+import { Button, Modal } from "antd";
 import s from "./Cart.module.scss";
 import { Table, InputNumber } from "antd";
+// import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { AUTH_ROUTE, ORDER_ROUTE } from "../../utils/consts";
+import { useState } from "react";
 
 const columns = [
   {
@@ -51,6 +55,29 @@ const data = [
 ];
 
 export const Cart = () => {
+  // const isAuth = useSelector(state => state.auth.logged);
+  const isAuth = true;
+
+  const [modalOpen, setModalOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleOrderClick = (e) => {
+    e.preventDefault();
+    if (!isAuth) {
+      setModalOpen(true);
+    } else {
+      navigate(ORDER_ROUTE);
+    }
+  };
+
+  const handleModalOk = () => {
+    navigate(AUTH_ROUTE);
+  };
+
+  const handleModalCancel = () => {
+    setModalOpen(false);
+  };
+
   return (
     <div className={s.cartPage}>
       <h1 className={s.cartPageHeading}>Your cart</h1>
@@ -61,9 +88,17 @@ export const Cart = () => {
         </Button>
         <div className={s.order}>
           <span className={s.total}>Total: $700</span>
-          <Button type="primary" size="large">
-            Order
+          <Button type="primary" size="large" onClick={handleOrderClick}>
+            Checkout
           </Button>
+          <Modal
+            open={modalOpen}
+            title="Please log in to your account"
+            onOk={handleModalOk}
+            onCancel={handleModalCancel}
+          >
+            You need to be logged in to your account to continue your order.
+          </Modal>
         </div>
       </div>
     </div>
