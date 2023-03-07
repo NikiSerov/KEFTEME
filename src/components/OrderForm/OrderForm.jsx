@@ -35,6 +35,9 @@ export const OrderForm = () => {
 
   return (
     <div className={s.orderFormContainer}>
+      <p className={s.formLabel}>
+        Please enter your shipping address and contact information:
+      </p>
       <form onSubmit={handleSubmit(onSubmit)} className={s.form}>
         <div className={s.inputContainer}>
           <label htmlFor="country" className={s.inputLabel}>
@@ -97,7 +100,7 @@ export const OrderForm = () => {
             </option>
           </select>
         </div>
-        <input type="submit" className={s.submit} value="Order" />
+        <input type="submit" className={s.submit} value="Confirm" />
         {contextHolder}
         <Modal
           open={modalOpen}

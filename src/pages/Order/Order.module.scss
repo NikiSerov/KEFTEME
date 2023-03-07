@@ -1,1 +1,29 @@
 @import "../../styles/variables.module.scss";
+
+.orderPage {
+    padding: 30px 0;
+}
+
+.orderHeading {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.orderData {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.userData {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 18px;
+}
+
+.textAccent {
+    color: $cyan;
+}
