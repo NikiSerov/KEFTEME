@@ -21,10 +21,12 @@ export const OrderForm = () => {
     messageApi.open({
       type: "success",
       content: "Your order is accepted!",
+      duration: 1.5,
+      onClose: () => navigate(ACCOUNT_ROUTE),
+      style: {
+        marginTop: "30vh",
+      },
     });
-    setTimeout(() => {
-      navigate(ACCOUNT_ROUTE);
-    }, 1000);
   };
 
   const handleModalCancel = () => {
@@ -102,6 +104,7 @@ export const OrderForm = () => {
           title="Confirm your order details"
           onOk={handleModalOk}
           onCancel={handleModalCancel}
+          centered={true}
         >
           <div className={s.modalText}>
             <span>Name: Nikita Serov</span>
