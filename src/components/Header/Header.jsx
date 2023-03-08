@@ -1,19 +1,18 @@
 import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
 import { Button } from "antd";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
   AUTH_ROUTE,
   CART_ROUTE,
   SHOP_ROUTE,
   ACCOUNT_ROUTE,
-} from "../../utils/consts";
+} from "../../constants/routes";
 import s from "./Header.module.scss";
 import { Logo } from "../Logo/Logo";
 
 export const Header = () => {
-  // const isAuth = useSelector((state) => state.auth.logged);
-  const isAuth = true;
+  const isAuth = useSelector((state) => state.auth.logged);
   return (
     <div className={s.header}>
       <Logo />

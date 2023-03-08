@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import s from "./OrderForm.module.scss";
-import { ACCOUNT_ROUTE } from "../../utils/consts";
+import { ACCOUNT_ROUTE } from "../../constants/routes";
 
 export const OrderForm = () => {
   const { register, handleSubmit } = useForm();

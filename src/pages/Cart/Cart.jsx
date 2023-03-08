@@ -3,7 +3,7 @@ import s from "./Cart.module.scss";
 import { Table, InputNumber } from "antd";
 // import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AUTH_ROUTE, ORDER_ROUTE } from "../../utils/consts";
+import { AUTH_ROUTE, ORDER_ROUTE } from "../../constants/routes";
 import { useState } from "react";
 
 const columns = [

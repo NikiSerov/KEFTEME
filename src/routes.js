@@ -11,7 +11,7 @@ import {
   SHOP_ROUTE,
   ACCOUNT_ROUTE,
   ORDER_ROUTE,
-} from "./utils/consts";
+} from "./constants/routes";
 
 export const routes = [
   {

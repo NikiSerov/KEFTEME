@@ -1,6 +1,6 @@
-@import "../../styles/variables.module.scss";
+@import '../../../../styles/variables.module.scss';
 
-.loginFormContainer {
+.registerFormContainer {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -14,18 +14,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-}
-
-.input {
-    font-size: 18px;
-    border: 1px solid $lightGrey;
-    padding: 5px 10px;
-    width: 100%;
-
-    &:focus {
-        outline: 1px solid black;
-    }
+    gap: 30px;
 }
 
 .submit {
@@ -40,4 +29,12 @@
     &:hover {
         background-color: $lighterMagenta;
     }
+}
+
+.input {
+    width: 100%;
+}
+
+.registerButton {
+    margin-top: 10px;
 }

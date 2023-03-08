@@ -1,14 +1,23 @@
-import { LoginForm } from "../../components/LoginForm/LoginForm";
-import { RegisterForm } from "../../components/RegisterForm/RegisterForm";
+import { LoginForm } from "./components/LoginForm/LoginForm";
+import { RegisterForm } from "./components/RegisterForm/RegisterForm";
 import s from "./Auth.module.scss";
+import { Button } from "antd";
+import { useState } from "react";
 
 export const Auth = () => {
+  const [isLoginForm, setIsLoginForm] = useState(true);
   return (
     <div className={s.authContainer}>
       <div className={s.auth}>
-        <LoginForm />
+        {isLoginForm ? <LoginForm /> : <RegisterForm />}
         <span className={s.separator}>or</span>
-        <RegisterForm />
+        <Button
+          type="link"
+          className={s.switchButton}
+          onClick={() => setIsLoginForm((prev) => !prev)}
+        >
+          {isLoginForm ? "Register" : "Login"}
+        </Button>
       </div>
     </div>
   );
