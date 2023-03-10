@@ -12,6 +12,7 @@ import s from "./Header.module.scss";
 import { Logo } from "../Logo/Logo";
 
 export const Header = () => {
+  const products = useSelector((state) => state.cart.products);
   const isAuth = useSelector((state) => state.auth.logged);
   return (
     <div className={s.header}>
@@ -34,7 +35,9 @@ export const Header = () => {
 
         <Link to={CART_ROUTE} className={s.cart}>
           <ShoppingCartOutlined className={s.cartIcon} />
-          <span className={s.count}>1</span>
+          {!!products.length && (
+            <span className={s.count}>{products.length}</span>
+          )}
         </Link>
       </div>
     </div>

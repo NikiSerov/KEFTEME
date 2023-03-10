@@ -6,12 +6,12 @@ export const getProducts = async () => {
 };
 
 export const getProduct = async (id) => {
-  const response = await instance.get(`/product/${id}`);
+  const response = await instance.get(`/products/${id}`);
   return response.data;
 };
 
 export const getColors = async () => {
-  const response = await instance.get("/color");
+  const response = await instance.get("/colors");
   return response.data;
 };
 
