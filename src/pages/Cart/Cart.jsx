@@ -4,10 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { AUTH_ROUTE, ORDER_ROUTE } from "../../constants/routes";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { CartTable } from "../../components/CartTable/CartTable";
 
 export const Cart = () => {
   const isAuth = useSelector((state) => state.auth.logged);
-
+  const sum = useSelector((state) => state.cart.sum);
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -31,13 +32,13 @@ export const Cart = () => {
   return (
     <div className={s.cartPage}>
       <h1 className={s.cartPageHeading}>Your cart</h1>
-
+      <CartTable />
       <div className={s.buttonsContainer}>
         <Button type="primary" size="large" className={s.clear}>
           Clear cart
         </Button>
         <div className={s.order}>
-          <span className={s.total}>Total: $700</span>
+          <span className={s.total}>Total: ${sum}</span>
           <Button type="primary" size="large" onClick={handleOrderClick}>
             Checkout
           </Button>
