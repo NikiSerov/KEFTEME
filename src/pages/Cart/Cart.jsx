@@ -8,7 +8,6 @@ import { CartTable } from "../../components/CartTable/CartTable";
 
 export const Cart = () => {
   const isAuth = useSelector((state) => state.auth.logged);
-  const sum = useSelector((state) => state.cart.sum);
   const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -38,7 +37,6 @@ export const Cart = () => {
           Clear cart
         </Button>
         <div className={s.order}>
-          <span className={s.total}>Total: ${sum}</span>
           <Button type="primary" size="large" onClick={handleOrderClick}>
             Checkout
           </Button>
