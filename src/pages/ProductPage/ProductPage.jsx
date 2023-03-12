@@ -6,6 +6,8 @@ import { Loader } from "../../components/Loader/Loader";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../store/slices/cartSlice";
 import { AddProductBtn } from "../../components/AddProductBtn/AddProductBtn";
+import { Divider } from "antd";
+import { updateCart } from "../../store/thunks/updateCart";
 
 export const ProductPage = () => {
   const { id } = useParams();
@@ -14,7 +16,7 @@ export const ProductPage = () => {
   const dispatch = useDispatch();
 
   const addToCart = () => {
-    dispatch(addProduct(product));
+    dispatch(updateCart(addProduct(product)));
   };
 
   useEffect(() => {
@@ -36,11 +38,14 @@ export const ProductPage = () => {
             <h1 className={s.productName}>{product.name}</h1>
             <p className={s.productColor}>{product.color}</p>
           </div>
+          <Divider />
           <p className={s.productDescription}>{product.description}</p>
+          <Divider />
           <div className={s.productStats}>
             <p className={s.productSize}>Size: {product.size}</p>
             <p className={s.productPrice}>${product.price}</p>
           </div>
+          <Divider />
         </div>
         <AddProductBtn handleAddClick={addToCart} productId={productId} />
       </div>

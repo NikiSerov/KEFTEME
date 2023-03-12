@@ -45,6 +45,7 @@ export const Cart = () => {
             title="Please log in to your account"
             onOk={handleModalOk}
             onCancel={handleModalCancel}
+            centered={true}
           >
             You need to be logged in to your account to continue your order.
           </Modal>

@@ -1,5 +1,5 @@
 import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
-import { Button } from "antd";
+import { Badge, Button } from "antd";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -10,6 +10,8 @@ import {
 } from "../../constants/routes";
 import s from "./Header.module.scss";
 import { Logo } from "../Logo/Logo";
+import { Modal } from "../Modal/Modal";
+import { modalTypes } from "../../constants/constants";
 
 export const Header = () => {
   const products = useSelector((state) => state.cart.products);
@@ -32,13 +34,16 @@ export const Header = () => {
             </Button>
           </Link>
         )}
-
-        <Link to={CART_ROUTE} className={s.cart}>
-          <ShoppingCartOutlined className={s.cartIcon} />
-          {!!products.length && (
-            <span className={s.count}>{products.length}</span>
-          )}
-        </Link>
+        <Badge
+          count={products.length}
+          color="cyan"
+          offset={[-5, 5]}
+          className={s.badge}
+        >
+          <Link to={CART_ROUTE} className={s.cart}>
+            <ShoppingCartOutlined className={s.cartIcon} />
+          </Link>
+        </Badge>
       </div>
     </div>
   );

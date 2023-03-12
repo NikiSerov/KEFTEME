@@ -6,35 +6,36 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addProduct(state, { payload }) {
-      if (!state.products.find((product) => product.id === payload.id)) {
-        state.products.push({ ...payload, quantity: 1 });
-        state.sum = +(state.sum + payload.price);
-        state.sum = +state.sum.toFixed(2);
+    addProduct(state, { payload: currProduct }) {
+      if (!state.products.find((product) => product.id === currProduct.id)) {
+        state.products.push({ ...currProduct, quantity: 1 });
       }
     },
-    deleteProduct(state, { payload }) {
-      state.products.filter((product) => product.id !== payload.id);
+    deleteProduct(state, { payload: id }) {
+      state.products = state.products.filter((product) => product.id !== id);
     },
-    quantityIncr(state, { payload }) {
-      const product = state.products.find(
-        (product) => product.id === payload.id
-      );
+    quantityIncr(state, { payload: id }) {
+      const product = state.products.find((product) => product.id === id);
       product.quantity += 1;
     },
-    quantityDecr(state, { payload }) {
-      const product = state.products.find(
-        (product) => product.id === payload.id
-      );
-      if (product.quantity >= 0) {
-        product.quantity -= 1;
-      } else {
-        state.products.filter((product) => product.id !== payload.id);
-      }
+    quantityDecr(state, { payload: id }) {
+      const product = state.products.find((product) => product.id === id);
+      product.quantity -= 1;
+    },
+    sumCalc(state) {
+      const sum = state.products.reduce((acc, { price, quantity }) => {
+        return acc + price * quantity;
+      }, 0);
+      state.sum = +sum.toFixed(2);
     },
   },
 });
 
-export const { addProduct, deleteProduct, quantityIncr, quantityDecr } =
-  cartSlice.actions;
+export const {
+  addProduct,
+  deleteProduct,
+  quantityIncr,
+  quantityDecr,
+  sumCalc,
+} = cartSlice.actions;
 export default cartSlice.reducer;

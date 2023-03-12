@@ -5,12 +5,18 @@ import { registrationInputs } from "./consts";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./schema";
 import { InputController } from "../../../../components/InputController/InputController";
+import { registartion } from "../../../../api/authAPI";
+import { useState } from "react";
 
-export const RegisterForm = () => {
+export const RegisterForm = ({ handleSuccess }) => {
+  const [isError, setIsError] = useState(false);
   const registrationForm = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async ({ email, firstName, lastName, password }) => {
+    const response = await registartion(email, firstName, lastName, password);
+    response.statusCode === 200 ? handleSuccess() : setIsError(true);
+  };
 
   return (
     <div className={s.registerFormContainer}>

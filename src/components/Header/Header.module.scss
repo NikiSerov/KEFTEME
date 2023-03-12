@@ -84,21 +84,3 @@
         height: 100%;
     }
 }
-
-.count {
-    position: absolute;
-    width: 16px;
-    height: 16px;
-    font-size: 12px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    background-color: $cyan;
-    color: black;
-    bottom: 0;
-    right: 0;
-    width: 20px;
-    height: 20px;
-    animation: fadeIn 0.3s;
-}

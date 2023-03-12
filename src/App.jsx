@@ -2,26 +2,23 @@ import { Route, Routes } from "react-router-dom";
 import { MainLayout } from "./layouts/MainLayout/MainLayout";
 import { routes } from "./routes";
 import { ConfigProvider } from "antd";
-// import { useEffect } from "react";
-// import { useDispatch } from "react-redux";
-// import { getUser } from "./api/authAPI";
-// import { addProduct } from "./store/slices/cartSlice";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getUserThunk } from "./store/thunks/userThunks";
 
 export const App = () => {
-  // getUser().then(console.log);
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   const localCart = localStorage.getItem("products");
-  //   dispatch(addProduct(localCart));
-  //   console.log(localCart);
-  // }, []);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getUserThunk());
+  }, []);
 
   return (
     <ConfigProvider
       theme={{
         token: {
           colorPrimary: "#9e1068",
-          borderRadius: "0",
+          borderRadius: "8px",
           colorLink: "#000",
           colorLinkHover: "#9e1068",
         },

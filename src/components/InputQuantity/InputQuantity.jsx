@@ -1,35 +1,28 @@
-import { Button, InputNumber } from "antd";
+import { Button } from "antd";
 import { useState } from "react";
 import s from "./InputQuantity.module.scss";
+import { quantityDecr, quantityIncr } from "../../store/slices/cartSlice";
+import { useDispatch } from "react-redux";
+import { updateCart } from "../../store/thunks/updateCart";
 
-export const InputQuantity = ({ defaultValue }) => {
-  const [inputValue, setInputValue] = useState(defaultValue);
+export const InputQuantity = ({ defaultValue, id }) => {
+  const [quantityValue, setQuantityValue] = useState(defaultValue);
+  const dispatch = useDispatch();
 
-  const handleChange = (e) => {
-    // if (!/^[0-9]{0,2}$/.test(e.target.value)) {
-    //   return;
-    // }
-    setInputValue(e.target.value);
-  };
-
-  //   const handleKeyPress = (e) => {
-  //     if (!/^[0-9]{0,2}$/.test(e.key)) {
-  //       e.preventDefault();
-  //     }
-  //   };
-
-  const handleDec = () => {
-    if (inputValue === 0) {
+  const handleDec = (e) => {
+    if (quantityValue === 1) {
       return;
     }
-    setInputValue((value) => (value -= 1));
+    setQuantityValue((value) => (value -= 1));
+    dispatch(updateCart(quantityDecr(id)));
   };
 
   const handleInc = () => {
-    if (inputValue === 99) {
+    if (quantityValue === 10) {
       return;
     }
-    setInputValue((value) => (value += 1));
+    setQuantityValue((value) => (value += 1));
+    dispatch(updateCart(quantityIncr(id)));
   };
 
   return (
@@ -37,13 +30,7 @@ export const InputQuantity = ({ defaultValue }) => {
       <Button className={s.decButton} onClick={handleDec}>
         -
       </Button>
-      <InputNumber
-        defaultValue={defaultValue}
-        onChange={handleChange}
-        className={s.quantityInput}
-        value={inputValue}
-        type="number"
-      />
+      <span className={s.quantityValue}>{quantityValue}</span>
       <Button className={s.button} onClick={handleInc}>
         +
       </Button>

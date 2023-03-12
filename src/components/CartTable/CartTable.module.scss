@@ -8,3 +8,14 @@
     height: 100%;
     object-fit: cover;
 }
+
+.quantityWrapper {
+    display: flex;
+    gap: 50px;
+}
+
+.total {
+    width: 100%;
+    padding-left: 85%;
+    font-size: 18px;
+}

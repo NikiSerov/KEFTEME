@@ -49,13 +49,13 @@ textarea {
     resize: none;
 }
 
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none !important;
-    margin: 0 !important;
+/* Styles for static modal */
+
+.ant-btn-primary {
+    background-color: #9e1068 !important;
+    border-radius: 0 !important;
 }
 
-input[type=number] {
-    appearance: textfield !important;
-    -moz-appearance: textfield !important;
+.ant-btn-primary:hover {
+    background-color: #ab2c76 !important;
 }

@@ -2,6 +2,7 @@ import { Table } from "antd";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { PRODUCT_ROUTE } from "../../constants/routes";
+import { DeleteFromCartBtn } from "../DeleteFromCartBtn/DeleteFromCartBtn";
 import { InputQuantity } from "../InputQuantity/InputQuantity";
 import s from "./CartTable.module.scss";
 
@@ -38,7 +39,12 @@ const columns = [
     title: "Quantity",
     dataIndex: "quantity",
     key: "quantity",
-    render: (value) => <InputQuantity defaultValue={value} />,
+    render: ({ quantity, id }) => (
+      <div className={s.quantityWrapper}>
+        <InputQuantity defaultValue={quantity} id={id} />
+        <DeleteFromCartBtn id={id} />
+      </div>
+    ),
   },
   {
     title: "Product total",
@@ -50,14 +56,15 @@ const columns = [
 export const CartTable = () => {
   const cartProducts = useSelector((state) => state.cart.products);
   const sum = useSelector((state) => state.cart.sum);
+  const emptyText = "Your cart is empty";
   const tableData = cartProducts.map((product, i) => {
     return {
       key: i,
       index: i + 1,
       productName: product,
       productImage: product,
-      quantity: product.quantity,
-      productTotal: product.price * product.quantity,
+      quantity: product,
+      productTotal: `$${+(product.price * product.quantity).toFixed(2)}`,
     };
   });
 
@@ -66,7 +73,8 @@ export const CartTable = () => {
       columns={columns}
       dataSource={tableData}
       pagination={false}
-      footer={() => <span className="{s.total}">Total: ${sum}</span>}
+      locale={{ emptyText }}
+      footer={() => !!sum && <div className={s.total}>Total: ${sum}</div>}
     />
   );
 };
