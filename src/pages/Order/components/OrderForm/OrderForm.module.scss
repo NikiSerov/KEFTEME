@@ -1,0 +1,29 @@
+@import "../../../../styles/variables.module.scss";
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 80%;
+}
+
+.formLabel {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+
+.inputLabel {
+    font-size: 18px;
+}
+
+.submit {
+    width: fit-content;
+    align-self: center;
+}

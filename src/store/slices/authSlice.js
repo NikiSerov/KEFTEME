@@ -10,8 +10,8 @@ const authSlice = createSlice({
       state.logged = true;
       state.user = payload;
     },
-    logOutUser(state) {
-      state.logged = false;
+    logOutUser() {
+      return initialState;
     },
   },
 });

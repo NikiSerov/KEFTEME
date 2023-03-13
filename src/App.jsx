@@ -18,9 +18,10 @@ export const App = () => {
       theme={{
         token: {
           colorPrimary: "#9e1068",
-          borderRadius: "8px",
+          borderRadius: "10px",
           colorLink: "#000",
           colorLinkHover: "#9e1068",
+          borderRadiusOuter: "8px",
         },
       }}
     >

@@ -2,6 +2,9 @@
 
 .collapse {
     width: 170px;
+    border-radius: 10px;
+    border: 1px solid $lightGrey;
+    overflow: hidden;
 }
 
 .panel {

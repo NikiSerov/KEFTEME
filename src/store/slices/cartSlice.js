@@ -28,6 +28,9 @@ const cartSlice = createSlice({
       }, 0);
       state.sum = +sum.toFixed(2);
     },
+    clearCart() {
+      return initialState;
+    },
   },
 });
 
@@ -37,5 +40,6 @@ export const {
   quantityIncr,
   quantityDecr,
   sumCalc,
+  clearCart,
 } = cartSlice.actions;
 export default cartSlice.reducer;

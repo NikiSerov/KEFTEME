@@ -10,8 +10,6 @@ import {
 } from "../../constants/routes";
 import s from "./Header.module.scss";
 import { Logo } from "../Logo/Logo";
-import { Modal } from "../Modal/Modal";
-import { modalTypes } from "../../constants/constants";
 
 export const Header = () => {
   const products = useSelector((state) => state.cart.products);
@@ -30,7 +28,7 @@ export const Header = () => {
         ) : (
           <Link to={AUTH_ROUTE}>
             <Button type="primary" size="large">
-              Login
+              Log In
             </Button>
           </Link>
         )}

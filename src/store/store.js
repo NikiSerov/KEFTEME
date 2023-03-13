@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "./slices/authSlice";
 import cartReducer from "./slices/cartSlice";
 import modalReducer from "./slices/modalSlice";
+import ordersReducer from "./slices/ordersSlice";
 import { cartListenerMiddleware } from "./middleware/cartListenerMiddleware";
 
 const preloadedState = {
@@ -15,6 +16,7 @@ export const store = configureStore({
     auth: authReducer,
     cart: cartReducer,
     modal: modalReducer,
+    orders: ordersReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(cartListenerMiddleware),

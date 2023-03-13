@@ -1,72 +1,54 @@
 import s from "./Account.module.scss";
-import { Table } from "antd";
-
-const columns = [
-  {
-    title: "№",
-    dataIndex: "orderID",
-    key: "orderID",
-  },
-  {
-    title: "Products",
-    dataIndex: "products",
-    key: "products",
-  },
-  {
-    title: "Date",
-    dataIndex: "date",
-    key: "date",
-  },
-  {
-    title: "Status",
-    dataIndex: "status",
-    key: "status",
-  },
-  {
-    title: "Total",
-    dataIndex: "total",
-    key: "total",
-  },
-];
-
-const data = [
-  {
-    key: "2",
-    orderID: "2",
-    products: "Snake King, Crocodiloes",
-    date: "22.06.2015",
-    status: "Ordered",
-    total: "$300",
-  },
-  {
-    key: "1",
-    orderID: "1",
-    products: "Abibas, Molewalkers",
-    date: "14.11.2012",
-    status: "In process",
-    total: "$400",
-  },
-];
+import { Button, Result } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { logOutUser } from "../../store/slices/authSlice";
+import { useNavigate } from "react-router-dom";
+import { AUTH_ROUTE, SHOP_ROUTE } from "../../constants/routes";
+import { UserData } from "../../components/UserData/UserData";
+import { OrdersTable } from "./components/OrdersTable/OrdersTable";
 
 export const Account = () => {
-  return (
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.auth.user);
+
+  const hadleLogOut = () => {
+    dispatch(logOutUser());
+    navigate(SHOP_ROUTE);
+  };
+
+  const handleLogInClick = () => {
+    navigate(AUTH_ROUTE);
+  };
+
+  return !!user ? (
     <div className={s.accountPage}>
       <h1 className={s.accountHeading}>Your account</h1>
-      <div className={s.userData}>
-        <span className={s.userName}>
-          <span className={s.accentText}>Name:</span> Nikita Serov
-        </span>
-        <span className={s.userLogin}>
-          <span className={s.accentText}>Login:</span> Nikita1997
-        </span>
-        <span className={s.userEmail}>
-          <span className={s.accentText}>Email:</span> nikitaserov1997@gmail.com
-        </span>
-      </div>
+      <UserData
+        firstName={user.firstName}
+        lastName={user.lastName}
+        email={user.email}
+      />
       <div className={s.usersOrders}>
         <h2 className={s.usersOrdersHeading}>Your orders</h2>
-        <Table columns={columns} dataSource={data} pagination={false} />
+        <OrdersTable />
+      </div>
+      <div>
+        <Button type="primary" size="large" onClick={hadleLogOut}>
+          Log Out
+        </Button>
       </div>
     </div>
+  ) : (
+    <Result
+      status="403"
+      title="Error"
+      subTitle="Sorry, you are not authorized to access this page."
+      extra={
+        <Button type="primary" size="large" onClick={handleLogInClick}>
+          Log In
+        </Button>
+      }
+    />
   );
 };

@@ -5,17 +5,24 @@ import { registrationInputs } from "./consts";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./schema";
 import { InputController } from "../../../../components/InputController/InputController";
-import { registartion } from "../../../../api/authAPI";
-import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { registerThunk } from "../../../../store/thunks/userThunks";
 
 export const RegisterForm = ({ handleSuccess }) => {
-  const [isError, setIsError] = useState(false);
+  const dispatch = useDispatch();
   const registrationForm = useForm({
     resolver: yupResolver(schema),
   });
   const onSubmit = async ({ email, firstName, lastName, password }) => {
-    const response = await registartion(email, firstName, lastName, password);
-    response.statusCode === 200 ? handleSuccess() : setIsError(true);
+    const response = await dispatch(
+      registerThunk({
+        email,
+        firstName,
+        lastName,
+        password,
+      })
+    );
+    response.payload && handleSuccess();
   };
 
   return (

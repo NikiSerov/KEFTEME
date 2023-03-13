@@ -53,9 +53,148 @@ textarea {
 
 .ant-btn-primary {
     background-color: #9e1068 !important;
-    border-radius: 0 !important;
 }
 
 .ant-btn-primary:hover {
     background-color: #ab2c76 !important;
 }
+
+/* Styles for ant design table */
+
+.ant-table-footer {
+    background: transparent !important;
+}
+
+.ant-table-wrapper .ant-table-thead .ant-table-cell {
+    background: transparent !important;
+}
+
+.ant-table {
+    border: 1px solid #f0f0f0 !important;
+    border-radius: 10px !important;
+}
+
+.ant-table-footer {
+    border-radius: 0 0 10px 10px;
+}
+
+/* Styles for ant design collapse  */
+
+.ant-collapse-item:nth-child(3) {
+    border-bottom: none;
+}
+
+/* 
+.ant-table-footer {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(35px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.25) !important;
+}
+
+.ant-table-wrapper .ant-table-thead .ant-table-cell {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(35px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 80px rgba(0, 0, 0, 0.25) !important;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(120deg, #1D976C, #2c3e50);
+}
+
+.circles {
+    position: absolute;
+    height: 270px;
+    width: 450px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+.circle-1 {
+    height: 300px;
+    width: 300px;
+    top: 100px;
+    left: -50px;
+    opacity: 0.8;
+    animation-timing-function: cubic-bezier(0.54, 0.085, 0.5, 0.92);
+    animation-iteration-count: infinite;
+    animation-name: float;
+    -webkit-animation-name: float;
+    animation-duration: 6s;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-delay: 3.5s;
+    animation-delay: 3.5s;
+    animation-direction: alternate;
+
+}
+
+.circle-2 {
+    height: 240px;
+    width: 240px;
+    bottom: 40px;
+    right: -100px;
+    opacity: 0.8;
+    animation-timing-function: cubic-bezier(0.54, 0.085, 0.5, 0.92);
+    animation-iteration-count: infinite;
+    animation-name: float;
+    -webkit-animation-name: float;
+    animation-duration: 6s;
+    -webkit-animation-duration: 6s;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+    animation-direction: alternate;
+}
+
+@keyframes explode {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+
+    0% {
+        -webkit-transform: rotateX(0deg) translateY(0px);
+        -moz-transform: rotateX(0deg) translateY(0px);
+        -ms-transform: rotateX(0deg) translateY(0px);
+        -o-transform: rotateX(0deg) translateY(0px);
+        transform: rotateX(0deg) translateY(0px);
+    }
+
+    50% {
+        -webkit-transform: rotateX(0deg) translateY(1px) translateX(5px);
+        -moz-transform: rotateX(0deg) translateY(10px) translateX(5px);
+        -ms-transform: rotateX(0deg) translateY(30px) translateX(5px);
+        -o-transform: rotateX(0deg) translateY(40px) translateX(5px);
+        transform: rotateX(0deg) translateY(10px) translateX(5px);
+    }
+
+    100% {
+        -webkit-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        -moz-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        -ms-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        -o-transform: rotateX(0deg) translateY(0px) translateX(1px);
+        transform: rotateX(0deg) translateY(0px) translateX(1px);
+    }
+
+}
+
+.mdl {
+    height: auto;
+    width: 420px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-60%, -60%);
+    z-index: 0;
+} */
