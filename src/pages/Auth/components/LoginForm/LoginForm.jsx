@@ -31,7 +31,7 @@ export const LoginForm = () => {
 
   return (
     <div className={s.loginFormContainer}>
-      <span className={s.formHeading}>Login</span>
+      <span className={s.formHeading}>Log in</span>
       <form
         onSubmit={loginForm.handleSubmit(onSubmit)}
         className={s.form}
@@ -42,7 +42,7 @@ export const LoginForm = () => {
             <InputController useFormConfig={loginForm} input={input} key={i} />
           );
         })}
-        <Button type="primary" htmlType="submit">
+        <Button size="large" htmlType="submit">
           Log In
         </Button>
       </form>

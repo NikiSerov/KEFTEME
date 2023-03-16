@@ -21,7 +21,7 @@ export const OrderForm = () => {
   });
 
   const onSubmit = async () => {
-    const response = await dispatch(createOrderThunk({ cart }));
+    const response = await dispatch(createOrderThunk(cart));
     response.payload && navigate(ACCOUNT_ROUTE);
   };
 
@@ -50,12 +50,7 @@ export const OrderForm = () => {
           wrapperClass={s.inputContainer}
           label="Choose delivery:"
         />
-        <Button
-          type="primary"
-          size="large"
-          htmlType="submit"
-          className={s.submit}
-        >
+        <Button size="large" htmlType="submit" className={s.submit}>
           Order
         </Button>
       </form>

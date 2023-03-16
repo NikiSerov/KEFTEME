@@ -11,7 +11,9 @@ import {
   SHOP_ROUTE,
   ACCOUNT_ROUTE,
   ORDER_ROUTE,
+  ERROR403_ROUTE,
 } from "./constants/routes";
+import { Error403 } from "./pages/Error403/Error403";
 
 export const routes = [
   {
@@ -38,5 +40,9 @@ export const routes = [
   {
     path: ORDER_ROUTE,
     component: <Order />,
+  },
+  {
+    path: ERROR403_ROUTE,
+    component: <Error403 />,
   },
 ];

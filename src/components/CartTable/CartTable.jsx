@@ -1,5 +1,5 @@
 import { DeleteOutlined } from "@ant-design/icons";
-import { Button, Popover, Table } from "antd";
+import { Button, Table } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { PRODUCT_ROUTE } from "../../constants/routes";
@@ -50,11 +50,9 @@ const columns = [
       isCartPage ? (
         <div className={s.quantityWrapper}>
           <InputQuantity defaultValue={product.quantity} id={product.id} />
-          <Popover content="Delete product">
-            <Button onClick={() => handleDelete(product.id)}>
-              <DeleteOutlined />
-            </Button>
-          </Popover>
+          <Button onClick={() => handleDelete(product.id)}>
+            <DeleteOutlined />
+          </Button>
         </div>
       ) : (
         <span>{product.quantity}</span>

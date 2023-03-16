@@ -3,7 +3,6 @@ import { getUser, logIn, registartion } from "../../api/authAPI";
 import { logOutUser, setUser } from "../slices/authSlice";
 import { LS_TOKEN_KEY } from "../../constants/constants";
 import { showModal } from "../slices/modalSlice";
-import { getOrdersThunk } from "./orderThunks";
 
 export const logInThunk = createAsyncThunk(
   "auth/logIn",
@@ -55,11 +54,10 @@ export const getUserThunk = createAsyncThunk(
   "auth/getUser",
   async (_, { dispatch }) => {
     const response = await getUser();
-    if (!response.statusCode) {
-      await dispatch(setUser(response));
-      dispatch(getOrdersThunk());
-    } else {
+    if (response.statusCode === 401) {
       dispatch(logOutUser());
+      throw new Error("Failed to get user data");
     }
+    dispatch(setUser(response));
   }
 );

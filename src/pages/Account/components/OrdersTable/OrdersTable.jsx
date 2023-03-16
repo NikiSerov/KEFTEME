@@ -1,7 +1,9 @@
 import { Table } from "antd";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { emptyText } from "./constants";
 import s from "./OrdersTable.module.scss";
+import { PRODUCT_ROUTE } from "../../../../constants/routes";
 
 const columns = [
   {
@@ -17,13 +19,16 @@ const columns = [
     key: "products",
     align: "center",
     render: (products) => (
-      <div className={s.productsContainer}>
+      <div className={s.productsWrapper}>
         {products.map((product, i) => {
           return (
-            <div key={i} className={s.productWrapper}>
-              <img src={product.picture} alt={`Product ${product.name}`} />
-              zazaz
-            </div>
+            <Link to={`${PRODUCT_ROUTE}/${product.id}`} key={i}>
+              <img
+                src={product.picture}
+                alt={`Product ${product.name}`}
+                className={s.productImage}
+              />
+            </Link>
           );
         })}
       </div>
@@ -55,8 +60,10 @@ const columns = [
 
 export const OrdersTable = () => {
   const orders = useSelector((state) => state.orders);
-
-  const tableData = orders.map((order, i) => {
+  const sortedOrders = [...orders].sort(
+    (a, b) => new Date(b.date) - new Date(a.date)
+  );
+  const tableData = sortedOrders.map((order, i) => {
     return {
       key: i,
       orderID: order.id.slice(0, 5),

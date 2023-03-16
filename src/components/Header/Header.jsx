@@ -1,5 +1,5 @@
 import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
-import { Badge, Button } from "antd";
+import { Badge, Button, Spin } from "antd";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -10,10 +10,36 @@ import {
 } from "../../constants/routes";
 import s from "./Header.module.scss";
 import { Logo } from "../Logo/Logo";
+import { Loader } from "../Loader/Loader";
 
 export const Header = () => {
   const products = useSelector((state) => state.cart.products);
-  const isAuth = useSelector((state) => state.auth.logged);
+  const { logged, loading } = useSelector((state) => state.auth);
+
+  const getAccountButton = () => {
+    if (loading) {
+      return (
+        <div className={s.accLoaderWrapper}>
+          <Loader tip="" size="medium" />
+        </div>
+      );
+    }
+
+    if (logged) {
+      return (
+        <Link to={ACCOUNT_ROUTE} className={s.account}>
+          <UserOutlined className={s.accountIcon} />
+        </Link>
+      );
+    }
+
+    return (
+      <Link to={AUTH_ROUTE}>
+        <Button size="large">Log In</Button>
+      </Link>
+    );
+  };
+
   return (
     <div className={s.header}>
       <Logo />
@@ -21,20 +47,10 @@ export const Header = () => {
         Shop
       </Link>
       <div className={s.buttonContainer}>
-        {isAuth ? (
-          <Link to={ACCOUNT_ROUTE} className={s.account}>
-            <UserOutlined className={s.accountIcon} />
-          </Link>
-        ) : (
-          <Link to={AUTH_ROUTE}>
-            <Button type="primary" size="large">
-              Log In
-            </Button>
-          </Link>
-        )}
+        <div className={s.accountButtonContainer}>{getAccountButton()}</div>
         <Badge
           count={products.length}
-          color="cyan"
+          color="#13b7b7"
           offset={[-5, 5]}
           className={s.badge}
         >

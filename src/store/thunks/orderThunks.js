@@ -6,8 +6,17 @@ import { setOrders } from "../slices/ordersSlice";
 
 export const createOrderThunk = createAsyncThunk(
   "orders/createOrder",
-  async ({ cart }, { dispatch }) => {
-    const response = await createOrder(cart);
+  async (cart, { dispatch }) => {
+    const order = {
+      products: cart.products.map(({ id, quantity }) => {
+        return {
+          productId: id,
+          quantity,
+        };
+      }),
+      sum: cart.sum,
+    };
+    const response = await createOrder(order);
     if (response.statusCode === 200) {
       dispatch(
         showModal({

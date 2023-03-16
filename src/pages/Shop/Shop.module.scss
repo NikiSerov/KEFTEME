@@ -4,14 +4,26 @@
     gap: 40px;
 }
 
+.wrapper {
+    width: calc(100% - 210px);
+}
+
 .productsContainer {
     display: flex;
+    width: 100%;
     flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 40px;
+    gap: 5.25%;
 }
 
 .productLink {
-    width: 22%;
-    color: black;
+    width: 21%;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

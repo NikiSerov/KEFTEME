@@ -5,11 +5,9 @@ import {
 } from "@ant-design/icons";
 import { Input, Button } from "antd";
 import s from "./Footer.module.scss";
-import cn from "classnames";
 import { Logo } from "../Logo/Logo";
 
 export const Footer = () => {
-  const instIconClasses = cn(s.socialIcon, s.socialIconInst);
   return (
     <div className={s.footer}>
       <Logo />
@@ -20,9 +18,7 @@ export const Footer = () => {
             style={{ width: "calc(100% - 105px)" }}
             defaultValue="Your email address"
           />
-          <Button type="primary" size="large">
-            Subscribe
-          </Button>
+          <Button size="large">Subscribe</Button>
         </Input.Group>
       </div>
       <div className={s.socialsContainer}>
@@ -30,7 +26,7 @@ export const Footer = () => {
           <FacebookOutlined className={s.socialIcon} />
         </a>
         <a href="https://www.instagram.com/">
-          <InstagramOutlined className={instIconClasses} />
+          <InstagramOutlined className={s.socialIcon} />
         </a>
         <a href="https://www.linkedin.com/">
           <LinkedinOutlined className={s.socialIcon} />

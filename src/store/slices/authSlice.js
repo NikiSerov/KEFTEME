@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = { logged: false, user: null };
+const initialState = { logged: false, user: null, loading: true };
 
 const authSlice = createSlice({
   name: "auth",
@@ -9,9 +9,14 @@ const authSlice = createSlice({
     setUser(state, { payload }) {
       state.logged = true;
       state.user = payload;
+      state.loading = false;
     },
     logOutUser() {
-      return initialState;
+      localStorage.removeItem("keftemeToken");
+      return {
+        ...initialState,
+        loading: false,
+      };
     },
   },
 });

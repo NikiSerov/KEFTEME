@@ -42,7 +42,7 @@ export const RegisterForm = ({ handleSuccess }) => {
             />
           );
         })}
-        <Button type="primary" htmlType="submit" className={s.registerButton}>
+        <Button size="large" htmlType="submit" className={s.registerButton}>
           Register
         </Button>
       </form>

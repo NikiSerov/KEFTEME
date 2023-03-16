@@ -1,0 +1,13 @@
+.productsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.productImage {
+    object-fit: cover;
+    max-width: 70px;
+    height: 100%;
+}

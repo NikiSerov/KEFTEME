@@ -3,6 +3,8 @@ import authReducer from "./slices/authSlice";
 import cartReducer from "./slices/cartSlice";
 import modalReducer from "./slices/modalSlice";
 import ordersReducer from "./slices/ordersSlice";
+import filtersReducer from "./slices/filtersSlice";
+import productsReducer from "./slices/productsSlice";
 import { cartListenerMiddleware } from "./middleware/cartListenerMiddleware";
 
 const preloadedState = {
@@ -17,6 +19,8 @@ export const store = configureStore({
     cart: cartReducer,
     modal: modalReducer,
     orders: ordersReducer,
+    filters: filtersReducer,
+    products: productsReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(cartListenerMiddleware),

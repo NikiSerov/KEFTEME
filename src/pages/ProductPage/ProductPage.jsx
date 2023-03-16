@@ -3,28 +3,68 @@ import { useParams } from "react-router-dom";
 import s from "./ProductPage.module.scss";
 import { getProduct } from "../../api/productsAPI";
 import { Loader } from "../../components/Loader/Loader";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addProduct } from "../../store/slices/cartSlice";
-import { AddProductBtn } from "../../components/AddProductBtn/AddProductBtn";
-import { Divider } from "antd";
+import { Divider, message } from "antd";
 import { updateCart } from "../../store/thunks/updateCart";
+import { Button } from "antd";
+import { Link, useNavigate } from "react-router-dom";
+import { CART_ROUTE } from "../../constants/routes";
 
 export const ProductPage = () => {
-  const { id } = useParams();
-  const productId = Number(id);
-  const [product, setProduct] = useState(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const addToCart = () => {
-    dispatch(updateCart(addProduct(product)));
-  };
+  const [product, setProduct] = useState(null);
+  const [isAdd, setIsAdd] = useState(true);
+
+  const { id } = useParams();
+
+  const [messageApi, contextHolder] = message.useMessage();
+
+  const productInCart = useSelector((state) =>
+    state.cart.products.find((product) => product.id === Number(id))
+  );
 
   useEffect(() => {
-    getProduct(productId).then((resp) => setProduct(resp));
-  }, [productId]);
+    getProduct(id).then((resp) => setProduct(resp));
+  }, [id]);
+
+  const handleGoToCart = () => {
+    navigate(CART_ROUTE);
+  };
+
+  const handleAdd = () => {
+    setIsAdd(false);
+    dispatch(updateCart(addProduct(product)));
+    !!productInCart ? warning() : success();
+  };
+
+  const success = () => {
+    messageApi.open({
+      type: "success",
+      content: "Product added to cart!",
+      className: "custom-class",
+      style: {
+        marginTop: "110px",
+      },
+    });
+  };
+
+  const warning = () => {
+    messageApi.open({
+      type: "warning",
+      content: "That product is already in your cart.",
+      className: "custom-class",
+      style: {
+        marginTop: "110px",
+      },
+    });
+  };
 
   return !!product ? (
     <div className={s.productPage}>
+      {contextHolder}
       <div className={s.imageContainer}>
         <img
           src={product.picture}
@@ -47,7 +87,19 @@ export const ProductPage = () => {
           </div>
           <Divider />
         </div>
-        <AddProductBtn handleAddClick={addToCart} productId={productId} />
+        <>
+          {isAdd ? (
+            <Button size="large" onClick={handleAdd}>
+              Add to cart
+            </Button>
+          ) : (
+            <Link to={CART_ROUTE}>
+              <Button size="large" onClick={handleGoToCart}>
+                Go to cart
+              </Button>
+            </Link>
+          )}
+        </>
       </div>
     </div>
   ) : (

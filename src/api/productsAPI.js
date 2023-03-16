@@ -1,7 +1,8 @@
+import { defaultLimit } from "../constants/constants";
 import { instance } from "./api";
 
-export const getProducts = async () => {
-  const response = await instance.get("/products");
+export const getProducts = async (queryString = "") => {
+  const response = await instance.get(`/products/?${queryString}`);
   return response.data;
 };
 

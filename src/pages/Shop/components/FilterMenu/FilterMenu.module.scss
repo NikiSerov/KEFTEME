@@ -1,0 +1,29 @@
+@import "../../../../styles/variables.module.scss";
+
+.filterMenu {
+    width: 170px;
+    position: relative;
+}
+
+.filterLoaderWrapper {
+    height: 150px;
+}
+
+.collapse {
+    width: 170px;
+    border-radius: 10px;
+    border: 1px solid $lightGrey;
+    overflow: hidden;
+}
+
+.colorOptionWrapper {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+}
+
+.panel {
+    background-color: white;
+}
