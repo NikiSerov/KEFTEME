@@ -6,6 +6,6 @@ export const setProductsThunk = createAsyncThunk(
   "products/getProducts",
   async (queryStr, { dispatch }) => {
     const response = await getProducts(queryStr);
-    dispatch(setProducts(response.data));
+    dispatch(setProducts(response));
   }
 );

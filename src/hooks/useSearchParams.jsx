@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import queryString from "query-string";
 import { useNavigate } from "react-router-dom";
-import { defaultLimit } from "../constants/constants";
 
-export const useSearchParams = (initialParams, onParamsChange) => {
+export const useSearchParams = ({ onParamsChange }) => {
+  const initialParams = queryString.parse(window.location.search, {
+    arrayFormat: "comma",
+  });
   const [selectedParams, setSelectedParams] = useState({
     ...initialParams,
-    limit: defaultLimit,
   });
   const navigate = useNavigate();
 
@@ -41,5 +42,10 @@ export const useSearchParams = (initialParams, onParamsChange) => {
     }));
   };
 
-  return { handleFilterChange, handleSortingChange, handlePagination };
+  return {
+    handleFilterChange,
+    handleSortingChange,
+    handlePagination,
+    initialParams,
+  };
 };

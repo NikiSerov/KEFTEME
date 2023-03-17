@@ -5,6 +5,7 @@ import { UserData } from "../../components/UserData/UserData";
 import { CartTable } from "../../components/CartTable/CartTable";
 import { useAuthRedirect } from "../../hooks/useAuthRedirect";
 import { Loader } from "../../components/Loader/Loader";
+import { Divider } from "antd";
 
 export const Order = () => {
   const { user, loading } = useSelector((state) => state.auth);
@@ -20,11 +21,12 @@ export const Order = () => {
       <h1 className={s.orderHeading}>Your order</h1>
       <div className={s.orderWrapper}>
         <div className={s.orderData}>
-          <UserData
-            firstName={user.firstName}
-            lastName={user.lastName}
-            email={user.email}
-          />
+          {/* <div className={s.userInfoWrapper}>
+            <p>First name: {user.firstName}</p>
+            <p>Last name: {user.lastName}</p>
+            <p>Email: {user.email}</p>
+          </div>
+          <Divider /> */}
           <OrderForm />
         </div>
         <div className={s.cartWrapper}>

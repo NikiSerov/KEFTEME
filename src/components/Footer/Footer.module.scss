@@ -9,11 +9,9 @@
     background: rgba(255, 255, 255, 0.1) !important;
     border-top: 2px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(30px);
-    // box-shadow: 0 0 80px rgba(0, 0, 0, 0.25);
 }
 
 .subscribeContainer {
-    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;

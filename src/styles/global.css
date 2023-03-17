@@ -58,25 +58,12 @@ textarea {
 
 /* Styles for ant design components */
 
-/* .ant-btn {
-    backdrop-filter: blur(35px) !important;
-} */
-
-/* .ant-btn-primary {
-    background-color: #36cfca67 !important;
-    border: 1px solid #36cfc9;
-} */
+.ant-input-lg {
+    width: 350px !important;
+}
 
 .ant-badge .ant-badge-count {
     color: white;
-}
-
-.ant-table-footer {
-    background: transparent !important;
-}
-
-.ant-table-wrapper .ant-table-thead .ant-table-cell {
-    background: transparent !important;
 }
 
 .ant-table-cell {
@@ -86,12 +73,15 @@ textarea {
 .ant-table {
     border-radius: 10px !important;
     border: 2px solid rgba(255, 255, 255, 0.165) !important;
-    /* box-shadow: 0 0 80px rgba(0, 0, 0, 0.25) !important; */
+}
+
+.ant-table-thead {
     backdrop-filter: blur(35px) !important;
 }
 
 .ant-table-footer {
     border-radius: 0 0 10px 10px;
+    backdrop-filter: blur(35px) !important;
 }
 
 .ant-collapse {
@@ -190,13 +180,5 @@ textarea {
     top: 0;
     bottom: 0;
     z-index: -1;
-    filter: hue-rotate(0deg) blur(20px) brightness(50%);
+    filter: brightness(70%);
 }
-
-/* .ant-table-footer {
-    background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(35px) !important;
-    border: 2px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 0 80px rgba(0, 0, 0, 0.25) !important;
-}
-*/

@@ -16,24 +16,24 @@
     justify-content: space-between;
 }
 
+.userInfoWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    font-size: 18px;
+}
+
 .orderData {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.userData {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 18px;
-}
-
-.textAccent {
-    color: $cyan;
-}
-
 .cartHeading {
     text-align: center;
     margin-bottom: 20px;
+}
+
+.cartWrapper {
+    width: 50%;
 }

@@ -2,7 +2,9 @@ import { defaultLimit } from "../constants/constants";
 import { instance } from "./api";
 
 export const getProducts = async (queryString = "") => {
-  const response = await instance.get(`/products/?${queryString}`);
+  const response = await instance.get(
+    `/products/?${queryString}&${defaultLimit}`
+  );
   return response.data;
 };
 

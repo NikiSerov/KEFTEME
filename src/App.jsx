@@ -21,7 +21,6 @@ export const App = () => {
           colorLink: "#fff",
           colorLinkHover: "#36cfc9",
           borderRadius: "10px",
-          // borderRadiusOuter: "10px",
           colorText: "white",
           colorBorder: "rgba(255, 255, 255, 0.165)",
           colorBorderBg: "rgba(255, 255, 255, 0.165)",

@@ -4,14 +4,16 @@ import { setProductsThunk } from "../thunks/productsThunk";
 const initialState = {
   products: [],
   loading: true,
+  total: 0,
 };
 
 const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    setProducts(state, { payload: products }) {
-      state.products = products;
+    setProducts(state, { payload }) {
+      state.products = payload.data;
+      state.total = payload.total;
     },
   },
   extraReducers: (builder) => {

@@ -13,12 +13,23 @@ import { useState } from "react";
 
 export const Shop = () => {
   const dispatch = useDispatch();
-  const { products, loading } = useSelector((state) => state.products);
-  const [currentPage, setCurrentPage] = useState(1);
+  const { products, loading, total } = useSelector((state) => state.products);
 
-  const urlSearchParams = new URLSearchParams(window.location.search);
-  const initialParams = Object.fromEntries(urlSearchParams.entries());
-  const { sort: initialSort, color, size, type, page } = initialParams;
+  const onParamsChange = (queryStr) => {
+    dispatch(setProductsThunk(queryStr));
+  };
+
+  const {
+    handleFilterChange,
+    handleSortingChange,
+    handlePagination,
+    initialParams,
+  } = useSearchParams({ onParamsChange });
+
+  const { sort, color, size, type, page } = initialParams;
+
+  const [currentPage, setCurrentPage] = useState(+page || 1);
+
   const initialFilters = [color, size, type]
     .map((value) => {
       return value ? value.split(",") : "";
@@ -29,13 +40,6 @@ export const Shop = () => {
     size: size && "size",
     type: type && "type",
   });
-
-  const onParamsChange = (queryStr) => {
-    dispatch(setProductsThunk(queryStr));
-  };
-
-  const { handleFilterChange, handleSortingChange, handlePagination } =
-    useSearchParams(initialParams, onParamsChange);
 
   const onPaginationChange = (page) => {
     handlePagination(page);
@@ -51,9 +55,9 @@ export const Shop = () => {
       />
       <div className={s.wrapper}>
         <SortPanel
-          productsCount={products.length}
+          productsCount={total}
           onSortingChange={handleSortingChange}
-          defaultValue={initialSort}
+          defaultValue={sort}
         />
         <div className={s.productsContainer}>
           {loading ? (
@@ -82,8 +86,9 @@ export const Shop = () => {
           {!loading && (
             <Pagination
               current={currentPage}
-              total={16}
+              total={total}
               onChange={onPaginationChange}
+              hideOnSinglePage={true}
             />
           )}
         </div>

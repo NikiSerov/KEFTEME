@@ -3,23 +3,51 @@ import {
   InstagramOutlined,
   LinkedinOutlined,
 } from "@ant-design/icons";
-import { Input, Button } from "antd";
+import { Button, Space } from "antd";
 import s from "./Footer.module.scss";
 import { Logo } from "../Logo/Logo";
+import { InputController } from "../InputController/InputController";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { schema } from "./schema";
+import { useDispatch } from "react-redux";
+import { showModal } from "../../store/slices/modalSlice";
 
 export const Footer = () => {
+  const dispatch = useDispatch();
+  const subscribeForm = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const inputData = {
+    placeHolder: "Email",
+    name: "email",
+    type: "email",
+  };
+
+  const onSubmit = () => {
+    dispatch(
+      showModal({
+        title: "Success",
+        type: "success",
+        modalText: "Successfully subscribed",
+      })
+    );
+  };
+
   return (
     <div className={s.footer}>
       <Logo />
       <div className={s.subscribeContainer}>
         <span className={s.inputLabel}>Subscribe to get latest updates</span>
-        <Input.Group size="large" compact>
-          <Input
-            style={{ width: "calc(100% - 105px)" }}
-            defaultValue="Your email address"
-          />
-          <Button size="large">Subscribe</Button>
-        </Input.Group>
+        <form onSubmit={subscribeForm.handleSubmit(onSubmit)}>
+          <Space.Compact size="large">
+            <InputController input={inputData} useFormConfig={subscribeForm} />
+            <Button size="large" htmlType="submit">
+              Subscribe
+            </Button>
+          </Space.Compact>
+        </form>
       </div>
       <div className={s.socialsContainer}>
         <a href="https://www.facebook.com/">
