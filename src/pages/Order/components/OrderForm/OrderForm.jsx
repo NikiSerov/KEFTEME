@@ -8,7 +8,7 @@ import { createOrderThunk } from "../../../../store/thunks/orderThunks";
 import { deliveryOptions, orderFormInputs } from "./constants";
 import { useNavigate } from "react-router-dom";
 import s from "./OrderForm.module.scss";
-import { ACCOUNT_ROUTE } from "../../../../constants/routes";
+import { ORDER_SUCCESS_ROUTE } from "../../../../constants/routes";
 import { schema } from "./schema";
 
 export const OrderForm = () => {
@@ -22,7 +22,7 @@ export const OrderForm = () => {
 
   const onSubmit = async () => {
     const response = await dispatch(createOrderThunk(cart));
-    response.payload && navigate(ACCOUNT_ROUTE);
+    response.payload && navigate(ORDER_SUCCESS_ROUTE);
   };
 
   return (

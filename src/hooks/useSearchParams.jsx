@@ -25,6 +25,7 @@ export const useSearchParams = ({ onParamsChange }) => {
     setSelectedParams((prevState) => ({
       ...prevState,
       [name]: checkedValues,
+      page: 1,
     }));
   };
 
@@ -32,6 +33,7 @@ export const useSearchParams = ({ onParamsChange }) => {
     setSelectedParams((prevState) => ({
       ...prevState,
       sort: sortParam,
+      page: 1,
     }));
   };
 

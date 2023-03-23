@@ -1,14 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { createOrderThunk } from "../thunks/orderThunks";
 
-const initialState = [];
+const initialState = { orders: [], processing: false };
 
 const ordersSlice = createSlice({
   name: "orders",
   initialState,
   reducers: {
-    setOrders(_, { payload: orders }) {
-      return orders;
+    setOrders(state, { payload: orders }) {
+      state.orders = orders;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(createOrderThunk.pending, (state) => {
+      state.processing = true;
+    });
+    builder.addCase(createOrderThunk.fulfilled, (state) => {
+      state.processing = false;
+    });
+    builder.addCase(createOrderThunk.rejected, (state) => {
+      state.processing = false;
+    });
   },
 });
 

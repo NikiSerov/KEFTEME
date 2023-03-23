@@ -59,7 +59,7 @@ const columns = [
 ];
 
 export const OrdersTable = () => {
-  const orders = useSelector((state) => state.orders);
+  const { orders } = useSelector((state) => state.orders);
   const sortedOrders = [...orders].sort(
     (a, b) => new Date(b.date) - new Date(a.date)
   );

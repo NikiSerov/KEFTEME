@@ -6,7 +6,7 @@ import s from "./MainLayout.module.scss";
 import { Modal } from "../../components/Modal/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { resetModal } from "../../store/slices/modalSlice";
-import bg74 from "../../assets/videos/bg74.mp4";
+import bgVideo from "../../assets/videos/bgVideo.mp4";
 import bg74_preview from "../../assets/images/bg74_preview.jpg";
 
 export const MainLayout = () => {
@@ -24,7 +24,7 @@ export const MainLayout = () => {
     <div className={s.mainLayout}>
       <Header />
       <video id="background-video" autoPlay loop muted poster={bg74_preview}>
-        <source src={bg74} type="video/mp4" />
+        <source src={bgVideo} type="video/mp4" />
       </video>
       <ContentLayout>
         <Outlet />

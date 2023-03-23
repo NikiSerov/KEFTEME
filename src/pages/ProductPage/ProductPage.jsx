@@ -68,8 +68,9 @@ export const ProductPage = () => {
       <div className={s.imageContainer}>
         <img
           src={product.picture}
-          alt={`Pciture of ${product.name}`}
+          alt={product.name}
           className={s.productImage}
+          loading="lazy"
         />
       </div>
       <div className={s.productDataWrapper}>

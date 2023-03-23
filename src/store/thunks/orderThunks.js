@@ -16,22 +16,16 @@ export const createOrderThunk = createAsyncThunk(
       }),
       sum: cart.sum,
     };
-    const response = await createOrder(order);
-    if (response.statusCode === 200) {
-      dispatch(
-        showModal({
-          title: "Order placed successfully!",
-          modalText: "Thank you for your order!",
-          type: "success",
-        })
-      );
+    try {
+      await createOrder(order);
       dispatch(clearCart());
       return true;
-    } else {
+    } catch (error) {
       dispatch(
         showModal({
           title: "Order error",
-          modalText: response.message,
+          modalText:
+            "An error occurred while processing your order. Please try again",
           type: "error",
         })
       );

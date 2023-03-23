@@ -17,7 +17,7 @@ export const SortPanel = ({ productsCount, onSortingChange, defaultValue }) => {
 
   return (
     <div className={s.sortPanel}>
-      <span className={s.productsCount}>{productsCount} products</span>
+      <span className={s.productsCount}>{productsCount} product(s)</span>
       <Select
         style={{ width: 200 }}
         defaultValue={defaultSorting}
