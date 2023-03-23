@@ -16,6 +16,7 @@ import {
 } from "./constants/routes";
 import { Error403 } from "./pages/Error403/Error403";
 import { OrderSuccess } from "./pages/OrderSuccess/OrderSuccess";
+import { Error404 } from "./pages/Error404/Error404";
 
 export const routes = [
   {
@@ -46,6 +47,10 @@ export const routes = [
   {
     path: ERROR403_ROUTE,
     component: <Error403 />,
+  },
+  {
+    path: "*",
+    component: <Error404 />,
   },
   {
     path: ORDER_SUCCESS_ROUTE,

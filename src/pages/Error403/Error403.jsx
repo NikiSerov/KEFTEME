@@ -11,11 +11,11 @@ export const Error403 = () => {
   return (
     <div>
       <Helmet>
-        <title>Error 403</title>
+        <title>Access error</title>
       </Helmet>
       <Result
         status="403"
-        title="Error"
+        title="Access error"
         subTitle="Sorry, you are not authorized to access this page."
         extra={
           <Button size="large" onClick={handleLogInClick}>
