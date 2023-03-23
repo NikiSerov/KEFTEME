@@ -10,6 +10,7 @@ import { updateCart } from "../../store/thunks/updateCart";
 import { Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { CART_ROUTE } from "../../constants/routes";
+import { Helmet } from "react-helmet";
 
 export const ProductPage = () => {
   const dispatch = useDispatch();
@@ -64,6 +65,9 @@ export const ProductPage = () => {
 
   return !!product ? (
     <div className={s.productPage}>
+      <Helmet>
+        <title>{product.name}</title>
+      </Helmet>
       {contextHolder}
       <div className={s.imageContainer}>
         <img

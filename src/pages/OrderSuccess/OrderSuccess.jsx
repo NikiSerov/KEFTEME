@@ -1,4 +1,5 @@
 import { Button, Result } from "antd";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import { ACCOUNT_ROUTE } from "../../constants/routes";
 import s from "./OrderSuccess.module.scss";
@@ -11,6 +12,9 @@ export const OrderSuccess = () => {
   };
   return (
     <div className={s.wrapper}>
+      <Helmet>
+        <title>Success!</title>
+      </Helmet>
       <Result
         status="success"
         title="Order confirmed!"

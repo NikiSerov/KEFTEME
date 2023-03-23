@@ -1,5 +1,5 @@
 import { ShoppingCartOutlined, UserOutlined } from "@ant-design/icons";
-import { Badge, Button, Spin } from "antd";
+import { Badge, Button } from "antd";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {

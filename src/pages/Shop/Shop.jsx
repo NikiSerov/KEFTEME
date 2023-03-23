@@ -10,6 +10,7 @@ import { setProductsThunk } from "../../store/thunks/productsThunk";
 import { useSearchParams } from "../../hooks/useSearchParams";
 import { Pagination } from "antd";
 import { defaultLimit } from "../../constants/constants";
+import { Helmet } from "react-helmet";
 
 export const Shop = () => {
   const dispatch = useDispatch();
@@ -46,6 +47,9 @@ export const Shop = () => {
 
   return (
     <div className={s.shop}>
+      <Helmet>
+        <title>KEFTEME</title>
+      </Helmet>
       <FilterMenu
         onFilterChange={handleFilterChange}
         defaultValues={initialFilters}

@@ -10,6 +10,7 @@ import { useEffect } from "react";
 import { getOrdersThunk } from "../../store/thunks/orderThunks";
 import { Loader } from "../../components/Loader/Loader";
 import { useAuthRedirect } from "../../hooks/useAuthRedirect";
+import { Helmet } from "react-helmet";
 
 export const Account = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,9 @@ export const Account = () => {
 
   return (
     <div className={s.accountPage}>
+      <Helmet>
+        <title>Your account</title>
+      </Helmet>
       <div className={s.userDataWrapper}>
         <h2 className={s.userInfoHeading}>Your info</h2>
         <UserData
