@@ -5,11 +5,12 @@ import { registrationInputs } from "./consts";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./schema";
 import { InputController } from "../../../../components/InputController/InputController";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { registerThunk } from "../../../../store/thunks/userThunks";
 
 export const RegisterForm = ({ handleSuccess }) => {
   const dispatch = useDispatch();
+  const { processing } = useSelector((state) => state.auth);
   const registrationForm = useForm({
     resolver: yupResolver(schema),
   });
@@ -42,7 +43,12 @@ export const RegisterForm = ({ handleSuccess }) => {
             />
           );
         })}
-        <Button size="large" htmlType="submit" className={s.registerButton}>
+        <Button
+          size="large"
+          htmlType="submit"
+          className={s.registerButton}
+          loading={processing}
+        >
           Register
         </Button>
       </form>

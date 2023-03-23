@@ -70,7 +70,6 @@ export const ProductPage = () => {
           src={product.picture}
           alt={product.name}
           className={s.productImage}
-          loading="lazy"
         />
       </div>
       <div className={s.productDataWrapper}>

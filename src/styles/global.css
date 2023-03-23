@@ -146,12 +146,8 @@ textarea {
     color: white !important;
 }
 
-.ant-modal-wrap {
-    backdrop-filter: brightness(75%);
-}
-
 .ant-modal-content {
-    background: rgba(55, 55, 55, 0.95) !important;
+    background: rgba(63, 87, 82, 0.85) !important;
     border: 2px solid rgba(255, 255, 255, 0.165) !important;
 }
 

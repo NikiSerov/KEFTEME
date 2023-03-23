@@ -9,7 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProductsThunk } from "../../store/thunks/productsThunk";
 import { useSearchParams } from "../../hooks/useSearchParams";
 import { Pagination } from "antd";
-import { useState } from "react";
+import { defaultLimit } from "../../constants/constants";
 
 export const Shop = () => {
   const dispatch = useDispatch();
@@ -23,18 +23,17 @@ export const Shop = () => {
     handleFilterChange,
     handleSortingChange,
     handlePagination,
-    initialParams,
+    selectedParams,
   } = useSearchParams({ onParamsChange });
 
-  const { sort, color, size, type, page } = initialParams;
-
-  const [currentPage, setCurrentPage] = useState(+page || 1);
+  const { sort, color, size, type, page } = selectedParams;
 
   const initialFilters = [color, size, type]
     .map((value) => {
-      return value ? value.split(",") : "";
+      return value || "";
     })
     .flat();
+
   const defaultActivePanels = Object.values({
     color: color && "color",
     size: size && "size",
@@ -43,7 +42,6 @@ export const Shop = () => {
 
   const onPaginationChange = (page) => {
     handlePagination(page);
-    setCurrentPage(page);
   };
 
   return (
@@ -85,10 +83,11 @@ export const Shop = () => {
         <div className={s.paginationContainer}>
           {!loading && (
             <Pagination
-              current={currentPage}
+              current={+page || 1}
               total={total}
               onChange={onPaginationChange}
               hideOnSinglePage={true}
+              pageSize={defaultLimit}
             />
           )}
         </div>

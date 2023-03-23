@@ -13,8 +13,9 @@ import { schema } from "./schema";
 
 export const OrderForm = () => {
   const navigate = useNavigate();
-  const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const { processing } = useSelector((state) => state.orders);
+  const cart = useSelector((state) => state.cart);
 
   const orderForm = useForm({
     resolver: yupResolver(schema),
@@ -50,7 +51,12 @@ export const OrderForm = () => {
           wrapperClass={s.inputContainer}
           label="Choose delivery:"
         />
-        <Button size="large" htmlType="submit" className={s.submit}>
+        <Button
+          size="large"
+          htmlType="submit"
+          className={s.submit}
+          loading={processing}
+        >
           Order
         </Button>
       </form>

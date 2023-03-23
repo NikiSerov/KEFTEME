@@ -2,9 +2,8 @@ import { defaultLimit } from "../constants/constants";
 import { instance } from "./api";
 
 export const getProducts = async (queryString = "") => {
-  const response = await instance.get(
-    `/products/?${queryString}&${defaultLimit}`
-  );
+  const qs = queryString ? `&${queryString}` : queryString;
+  const response = await instance.get(`/products/?limit=${defaultLimit}${qs}`);
   return response.data;
 };
 

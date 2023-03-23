@@ -7,7 +7,6 @@ import { Loader } from "../../components/Loader/Loader";
 
 export const Order = () => {
   const { user, loading } = useSelector((state) => state.auth);
-  const { processing } = useSelector((state) => state.orders);
 
   useAuthRedirect(user, loading);
 
@@ -16,20 +15,17 @@ export const Order = () => {
   }
 
   return (
-    <>
-      {processing && <Loader tip="Processing" />}
-      <div className={s.orderPage}>
-        <h1 className={s.orderHeading}>Your order</h1>
-        <div className={s.orderWrapper}>
-          <div className={s.orderData}>
-            <OrderForm />
-          </div>
-          <div className={s.cartWrapper}>
-            <p className={s.cartHeading}>Your cart:</p>
-            <CartTable />
-          </div>
+    <div className={s.orderPage}>
+      <h1 className={s.orderHeading}>Your order</h1>
+      <div className={s.orderWrapper}>
+        <div className={s.orderData}>
+          <OrderForm />
+        </div>
+        <div className={s.cartWrapper}>
+          <p className={s.cartHeading}>Your cart:</p>
+          <CartTable />
         </div>
       </div>
-    </>
+    </div>
   );
 };

@@ -17,7 +17,7 @@ export const LoginForm = () => {
   });
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
+  const { user, processing } = useSelector((state) => state.auth);
 
   useEffect(() => {
     if (user) {
@@ -42,7 +42,7 @@ export const LoginForm = () => {
             <InputController useFormConfig={loginForm} input={input} key={i} />
           );
         })}
-        <Button size="large" htmlType="submit">
+        <Button size="large" htmlType="submit" loading={processing}>
           Log In
         </Button>
       </form>

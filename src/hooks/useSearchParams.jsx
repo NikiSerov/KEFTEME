@@ -3,21 +3,25 @@ import queryString from "query-string";
 import { useNavigate } from "react-router-dom";
 
 export const useSearchParams = ({ onParamsChange }) => {
-  const initialParams = queryString.parse(window.location.search, {
+  const navigate = useNavigate();
+
+  const params = queryString.parse(window.location.search, {
     arrayFormat: "comma",
   });
+
   const [selectedParams, setSelectedParams] = useState({
-    ...initialParams,
+    ...params,
   });
-  const navigate = useNavigate();
 
   useEffect(() => {
     const queryStr = queryString.stringify(selectedParams, {
       arrayFormat: "comma",
     });
+
     navigate({
       search: queryStr,
     });
+
     onParamsChange(queryStr);
   }, [selectedParams]);
 
@@ -48,6 +52,6 @@ export const useSearchParams = ({ onParamsChange }) => {
     handleFilterChange,
     handleSortingChange,
     handlePagination,
-    initialParams,
+    selectedParams,
   };
 };
