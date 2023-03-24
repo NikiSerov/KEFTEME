@@ -40,7 +40,7 @@ export const Footer = () => {
       <Logo />
       <div className={s.subscribeContainer}>
         <span className={s.inputLabel}>Subscribe to get latest updates</span>
-        <form onSubmit={subscribeForm.handleSubmit(onSubmit)}>
+        <form onSubmit={subscribeForm.handleSubmit(onSubmit)} noValidate={true}>
           <Space.Compact size="large">
             <InputController input={inputData} useFormConfig={subscribeForm} />
             <Button size="large" htmlType="submit">

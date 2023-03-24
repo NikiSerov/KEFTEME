@@ -7,14 +7,18 @@ import { PRODUCT_ROUTE } from "../../constants/routes";
 import { Loader } from "../../components/Loader/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { setProductsThunk } from "../../store/thunks/productsThunk";
-import { useSearchParams } from "../../hooks/useSearchParams";
+import { useQSParams } from "../../hooks/useQSParams";
 import { Pagination } from "antd";
 import { defaultLimit } from "../../constants/constants";
-import { Helmet } from "react-helmet";
+import { Helmet } from "../../components/Helmet/Helmet";
+import { useEffect, useState } from "react";
+import { getActivePanels } from "../../utils/utils";
 
 export const Shop = () => {
   const dispatch = useDispatch();
   const { products, loading, total } = useSelector((state) => state.products);
+  const [activePanels, setActivePanels] = useState([]);
+  const [selectedSorting, setSelectedSorting] = useState("");
 
   const onParamsChange = (queryStr) => {
     dispatch(setProductsThunk(queryStr));
@@ -25,77 +29,80 @@ export const Shop = () => {
     handleSortingChange,
     handlePagination,
     selectedParams,
-  } = useSearchParams({ onParamsChange });
+  } = useQSParams({ onParamsChange });
 
   const { sort, color, size, type, page } = selectedParams;
 
-  const initialFilters = [color, size, type]
+  const defaultSelectedFilters = [color, size, type]
     .map((value) => {
-      return value || "";
+      return value?.split(",") || "";
     })
     .flat();
 
-  const defaultActivePanels = Object.values({
-    color: color && "color",
-    size: size && "size",
-    type: type && "type",
-  });
+  useEffect(() => {
+    setActivePanels(getActivePanels({ color, size, type }));
+  }, [color, size, type]);
+
+  useEffect(() => {
+    setSelectedSorting(sort);
+  }, [sort]);
 
   const onPaginationChange = (page) => {
     handlePagination(page);
   };
 
   return (
-    <div className={s.shop}>
-      <Helmet>
-        <title>KEFTEME</title>
-      </Helmet>
-      <FilterMenu
-        onFilterChange={handleFilterChange}
-        defaultValues={initialFilters}
-        defaultActivePanels={defaultActivePanels}
-      />
-      <div className={s.wrapper}>
-        <SortPanel
-          productsCount={total}
-          onSortingChange={handleSortingChange}
-          defaultValue={sort}
+    <>
+      <Helmet title="KEFTEME" />
+      <div className={s.shop}>
+        <FilterMenu
+          onFilterChange={handleFilterChange}
+          defaultValues={defaultSelectedFilters}
+          defaultActivePanels={activePanels}
+          setActivePanels={setActivePanels}
         />
-        <div className={s.productsContainer}>
-          {loading ? (
-            <Loader />
-          ) : (
-            products.map((product) => {
-              return (
-                <Link
-                  to={`${PRODUCT_ROUTE}/${product.id}`}
-                  className={s.productLink}
-                  key={product.id}
-                >
-                  <ProductCard
-                    pictureSrc={product.picture}
-                    name={product.name}
-                    color={product.color}
-                    price={product.price}
-                    id={product.id}
-                  />
-                </Link>
-              );
-            })
-          )}
-        </div>
-        <div className={s.paginationContainer}>
-          {!loading && (
-            <Pagination
-              current={+page || 1}
-              total={total}
-              onChange={onPaginationChange}
-              hideOnSinglePage={true}
-              pageSize={defaultLimit}
-            />
-          )}
+        <div className={s.wrapper}>
+          <SortPanel
+            productsCount={total}
+            onSortingChange={handleSortingChange}
+            selectedSorting={selectedSorting}
+          />
+          <div className={s.productsContainer}>
+            {loading ? (
+              <Loader />
+            ) : (
+              products.map((product) => {
+                return (
+                  <Link
+                    to={`${PRODUCT_ROUTE}/${product.id}`}
+                    className={s.productLink}
+                    key={product.id}
+                  >
+                    <ProductCard
+                      pictureSrc={product.picture}
+                      name={product.name}
+                      color={product.color}
+                      price={product.price}
+                      id={product.id}
+                    />
+                  </Link>
+                );
+              })
+            )}
+          </div>
+          <div className={s.paginationContainer}>
+            {!loading && (
+              <Pagination
+                current={+page || 1}
+                total={total}
+                onChange={onPaginationChange}
+                hideOnSinglePage={true}
+                pageSize={defaultLimit}
+              />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

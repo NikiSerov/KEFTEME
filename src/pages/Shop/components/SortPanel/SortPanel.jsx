@@ -9,10 +9,16 @@ const sortParams = [
   { value: "name-DESC", label: "Z - A" },
 ];
 
-export const SortPanel = ({ productsCount, onSortingChange, defaultValue }) => {
-  let defaultSorting = sortParams[0];
-  if (defaultValue) {
-    defaultSorting = sortParams.find((item) => item.value === defaultValue);
+export const SortPanel = ({
+  productsCount,
+  onSortingChange,
+  selectedSorting,
+}) => {
+  let selectedSortParam = sortParams[0];
+  if (selectedSorting) {
+    selectedSortParam = sortParams.find(
+      (item) => item.value === selectedSorting
+    );
   }
 
   return (
@@ -20,7 +26,7 @@ export const SortPanel = ({ productsCount, onSortingChange, defaultValue }) => {
       <span className={s.productsCount}>{productsCount} product(s)</span>
       <Select
         style={{ width: 200 }}
-        defaultValue={defaultSorting}
+        value={selectedSortParam}
         onChange={onSortingChange}
       >
         {sortParams.map((option) => (

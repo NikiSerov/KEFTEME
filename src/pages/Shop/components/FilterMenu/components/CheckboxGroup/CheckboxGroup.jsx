@@ -14,7 +14,7 @@ export const CheckboxGroup = ({
       className={s.checkboxGroup}
       name={name}
       onChange={(array) => onFilterChange(array, name)}
-      defaultValue={defaultValues}
+      value={defaultValues}
     />
   );
 };

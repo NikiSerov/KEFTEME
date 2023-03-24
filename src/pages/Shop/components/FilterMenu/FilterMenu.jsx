@@ -13,6 +13,7 @@ export const FilterMenu = ({
   onFilterChange,
   defaultValues,
   defaultActivePanels,
+  setActivePanels,
 }) => {
   const dispatch = useDispatch();
 
@@ -75,7 +76,11 @@ export const FilterMenu = ({
           <Loader />
         </div>
       ) : (
-        <Collapse className={s.collapse} defaultActiveKey={defaultActivePanels}>
+        <Collapse
+          className={s.collapse}
+          activeKey={defaultActivePanels}
+          onChange={(panels) => setActivePanels(panels)}
+        >
           {checkboxGroups.map(({ header, name, options }) => {
             return (
               <Panel header={header} className={s.panel} key={name}>

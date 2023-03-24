@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { CartTable } from "../../components/CartTable/CartTable";
 import { updateCart } from "../../store/thunks/updateCart";
 import { clearCart } from "../../store/slices/cartSlice";
-import { Helmet } from "react-helmet";
+import { Helmet } from "../../components/Helmet/Helmet";
 
 export const Cart = () => {
   const isAuth = useSelector((state) => state.auth.logged);
@@ -28,24 +28,24 @@ export const Cart = () => {
   };
 
   return (
-    <div className={s.cartPage}>
-      <Helmet>
-        <title>Cart</title>
-      </Helmet>
-      <h1 className={s.cartPageHeading}>Your cart</h1>
-      <CartTable isCartPage={true} classname={s.cartTable} />
-      {!!cartProducts.length && (
-        <div className={s.buttonsContainer}>
-          <Button size="large" onClick={handleClearCart}>
-            Clear cart
-          </Button>
-          <div className={s.order}>
-            <Button size="large" onClick={handleOrderClick}>
-              Checkout
+    <>
+      <Helmet title="Cart" />
+      <div className={s.cartPage}>
+        <h1 className={s.cartPageHeading}>Your cart</h1>
+        <CartTable isCartPage={true} classname={s.cartTable} />
+        {!!cartProducts.length && (
+          <div className={s.buttonsContainer}>
+            <Button size="large" onClick={handleClearCart}>
+              Clear cart
             </Button>
+            <div className={s.order}>
+              <Button size="large" onClick={handleOrderClick}>
+                Checkout
+              </Button>
+            </div>
           </div>
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };

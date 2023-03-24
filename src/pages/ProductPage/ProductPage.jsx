@@ -10,7 +10,7 @@ import { updateCart } from "../../store/thunks/updateCart";
 import { Button } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import { CART_ROUTE } from "../../constants/routes";
-import { Helmet } from "react-helmet";
+import { Helmet } from "../../components/Helmet/Helmet";
 
 export const ProductPage = () => {
   const dispatch = useDispatch();
@@ -64,48 +64,48 @@ export const ProductPage = () => {
   };
 
   return !!product ? (
-    <div className={s.productPage}>
-      <Helmet>
-        <title>{product.name}</title>
-      </Helmet>
-      {contextHolder}
-      <div className={s.imageContainer}>
-        <img
-          src={product.picture}
-          alt={product.name}
-          className={s.productImage}
-        />
-      </div>
-      <div className={s.productDataWrapper}>
-        <div className={s.productData}>
-          <div className={s.productHeading}>
-            <h1 className={s.productName}>{product.name}</h1>
-            <p className={s.productColor}>{product.color}</p>
-          </div>
-          <Divider />
-          <p className={s.productDescription}>{product.description}</p>
-          <Divider />
-          <div className={s.productStats}>
-            <p className={s.productSize}>Size: {product.size}</p>
-            <p className={s.productPrice}>${product.price}</p>
-          </div>
-          <Divider />
+    <>
+      <Helmet title={product.name} />
+      <div className={s.productPage}>
+        {contextHolder}
+        <div className={s.imageContainer}>
+          <img
+            src={product.picture}
+            alt={product.name}
+            className={s.productImage}
+          />
         </div>
-        <>
-          {isAdd ? (
-            <Button size="large" onClick={handleAdd}>
-              Add to cart
-            </Button>
-          ) : (
-            <Link to={CART_ROUTE}>
-              <Button size="large" onClick={handleGoToCart}>
-                Go to cart
+        <div className={s.productDataWrapper}>
+          <div className={s.productData}>
+            <div className={s.productHeading}>
+              <h1 className={s.productName}>{product.name}</h1>
+              <p className={s.productColor}>{product.color}</p>
+            </div>
+            <Divider />
+            <p className={s.productDescription}>{product.description}</p>
+            <Divider />
+            <div className={s.productStats}>
+              <p className={s.productSize}>Size: {product.size}</p>
+              <p className={s.productPrice}>${product.price}</p>
+            </div>
+            <Divider />
+          </div>
+          <>
+            {isAdd ? (
+              <Button size="large" onClick={handleAdd}>
+                Add to cart
               </Button>
-            </Link>
-          )}
-        </>
+            ) : (
+              <Link to={CART_ROUTE}>
+                <Button size="large" onClick={handleGoToCart}>
+                  Go to cart
+                </Button>
+              </Link>
+            )}
+          </>
+        </div>
       </div>
-    </div>
+    </>
   ) : (
     <Loader />
   );

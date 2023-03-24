@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { CartTable } from "../../components/CartTable/CartTable";
 import { useAuthRedirect } from "../../hooks/useAuthRedirect";
 import { Loader } from "../../components/Loader/Loader";
-import { Helmet } from "react-helmet";
+import { Helmet } from "../../components/Helmet/Helmet";
 
 export const Order = () => {
   const { user, loading } = useSelector((state) => state.auth);
@@ -16,20 +16,20 @@ export const Order = () => {
   }
 
   return (
-    <div className={s.orderPage}>
-      <Helmet>
-        <title>Order</title>
-      </Helmet>
-      <h1 className={s.orderHeading}>Your order</h1>
-      <div className={s.orderWrapper}>
-        <div className={s.orderData}>
-          <OrderForm />
-        </div>
-        <div className={s.cartWrapper}>
-          <p className={s.cartHeading}>Your cart:</p>
-          <CartTable />
+    <>
+      <Helmet title="Order" />
+      <div className={s.orderPage}>
+        <h1 className={s.orderHeading}>Your order</h1>
+        <div className={s.orderWrapper}>
+          <div className={s.orderData}>
+            <OrderForm />
+          </div>
+          <div className={s.cartWrapper}>
+            <p className={s.cartHeading}>Your cart:</p>
+            <CartTable />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };

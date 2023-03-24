@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { getOrdersThunk } from "../../store/thunks/orderThunks";
 import { Loader } from "../../components/Loader/Loader";
 import { useAuthRedirect } from "../../hooks/useAuthRedirect";
-import { Helmet } from "react-helmet";
+import { Helmet } from "../../components/Helmet/Helmet";
 
 export const Account = () => {
   const dispatch = useDispatch();
@@ -33,27 +33,27 @@ export const Account = () => {
   }
 
   return (
-    <div className={s.accountPage}>
-      <Helmet>
-        <title>Your account</title>
-      </Helmet>
-      <div className={s.userDataWrapper}>
-        <h2 className={s.userInfoHeading}>Your info</h2>
-        <UserData
-          firstName={user.firstName}
-          lastName={user.lastName}
-          email={user.email}
-        />
-        <div className={s.buttonContainer}>
-          <Button size="large" onClick={hadleLogOut}>
-            Log Out
-          </Button>
+    <>
+      <Helmet title="Your account" />
+      <div className={s.accountPage}>
+        <div className={s.userDataWrapper}>
+          <h2 className={s.userInfoHeading}>Your info</h2>
+          <UserData
+            firstName={user.firstName}
+            lastName={user.lastName}
+            email={user.email}
+          />
+          <div className={s.buttonContainer}>
+            <Button size="large" onClick={hadleLogOut}>
+              Log Out
+            </Button>
+          </div>
+        </div>
+        <div className={s.usersOrders}>
+          <h2 className={s.usersOrdersHeading}>Your orders</h2>
+          <OrdersTable />
         </div>
       </div>
-      <div className={s.usersOrders}>
-        <h2 className={s.usersOrdersHeading}>Your orders</h2>
-        <OrdersTable />
-      </div>
-    </div>
+    </>
   );
 };
