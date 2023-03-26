@@ -1,5 +1,5 @@
-import { Checkbox } from "antd";
-import s from "./CheckboxGroup.module.scss";
+import { Checkbox } from 'antd';
+import s from './CheckboxGroup.module.scss';
 
 export const CheckboxGroup = ({
   name,
@@ -9,12 +9,12 @@ export const CheckboxGroup = ({
 }) => {
   return (
     <Checkbox.Group
-      style={{ width: "100%" }}
+      style={{ width: '100%' }}
       options={options}
       className={s.checkboxGroup}
       name={name}
       onChange={(array) => onFilterChange(array, name)}
-      value={defaultValues}
+      defaultValue={[defaultValues]}
     />
   );
 };
