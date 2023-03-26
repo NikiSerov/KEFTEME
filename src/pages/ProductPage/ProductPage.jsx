@@ -1,30 +1,31 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import s from "./ProductPage.module.scss";
-import { getProduct } from "../../api/productsAPI";
-import { Loader } from "../../components/Loader/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { addProduct } from "../../store/slices/cartSlice";
-import { Divider, message } from "antd";
-import { updateCart } from "../../store/thunks/updateCart";
-import { Button } from "antd";
-import { Link, useNavigate } from "react-router-dom";
-import { CART_ROUTE } from "../../constants/routes";
-import { Helmet } from "../../components/Helmet/Helmet";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import s from './ProductPage.module.scss';
+import { getProduct } from '../../api/productsAPI';
+import { Loader } from '../../components/Loader/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProduct } from '../../store/slices/cartSlice';
+import { Divider } from 'antd';
+import { updateCart } from '../../store/thunks/updateCart';
+import { Button } from 'antd';
+import { Link, useNavigate } from 'react-router-dom';
+import { CART_ROUTE } from '../../constants/routes';
+import { Helmet } from '../../components/Helmet/Helmet';
+import { useMessageApi } from '../../hooks/useMessageApi';
 
 export const ProductPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const { success, warning, contextHolder } = useMessageApi();
+
   const [product, setProduct] = useState(null);
-  const [isAdd, setIsAdd] = useState(true);
+  const [isAddButton, setIsAddButton] = useState(true);
 
   const { id } = useParams();
 
-  const [messageApi, contextHolder] = message.useMessage();
-
   const productInCart = useSelector((state) =>
-    state.cart.products.find((product) => product.id === Number(id))
+    state.cart.products.find((product) => product.id === Number(id)),
   );
 
   useEffect(() => {
@@ -36,42 +37,20 @@ export const ProductPage = () => {
   };
 
   const handleAdd = () => {
-    setIsAdd(false);
+    setIsAddButton(false);
     dispatch(updateCart(addProduct(product)));
     !!productInCart ? warning() : success();
   };
 
-  const success = () => {
-    messageApi.open({
-      type: "success",
-      content: "Product added to cart!",
-      className: "custom-class",
-      style: {
-        marginTop: "110px",
-      },
-    });
-  };
-
-  const warning = () => {
-    messageApi.open({
-      type: "warning",
-      content: "That product is already in your cart.",
-      className: "custom-class",
-      style: {
-        marginTop: "110px",
-      },
-    });
-  };
-
-  if(!product) {
-    return <Loader/>
+  if (!product) {
+    return <Loader />;
   }
 
   return (
     <>
       <Helmet title={product.name} />
+      {contextHolder}
       <div className={s.productPage}>
-        {contextHolder}
         <div className={s.imageContainer}>
           <img
             src={product.picture}
@@ -95,7 +74,7 @@ export const ProductPage = () => {
             <Divider />
           </div>
           <>
-            {isAdd ? (
+            {isAddButton ? (
               <Button size="large" onClick={handleAdd}>
                 Add to cart
               </Button>
@@ -109,5 +88,6 @@ export const ProductPage = () => {
           </>
         </div>
       </div>
-    </>)
+    </>
+  );
 };

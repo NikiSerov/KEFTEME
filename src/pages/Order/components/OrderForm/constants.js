@@ -1,31 +1,31 @@
 export const orderFormInputs = [
   {
-    placeHolder: "Country",
-    name: "country",
+    placeHolder: 'Country',
+    name: 'country',
   },
   {
-    placeHolder: "City",
-    name: "city",
+    placeHolder: 'City',
+    name: 'city',
   },
   {
-    placeHolder: "Street",
-    name: "street",
+    placeHolder: 'Street',
+    name: 'street',
   },
   {
-    placeHolder: "Phone number",
-    name: "phoneNumber",
-    type: "text",
+    placeHolder: 'Phone number',
+    name: 'phoneNumber',
+    type: 'text',
   },
 ];
 
 export const deliveryOptions = [
   {
-    value: "express",
-    label: "Express",
+    value: 'express',
+    label: 'Express',
   },
   {
-    value: "standart",
-    label: "Standart",
+    value: 'standard',
+    label: 'Standard',
   },
 ];
 

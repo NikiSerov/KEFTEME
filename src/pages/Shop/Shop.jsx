@@ -1,24 +1,24 @@
-import { FilterMenu } from "./components/FilterMenu/FilterMenu";
-import { ProductCard } from "./components/ProductCard/ProductCard";
-import { SortPanel } from "./components/SortPanel/SortPanel";
-import s from "./Shop.module.scss";
-import { Link } from "react-router-dom";
-import { PRODUCT_ROUTE } from "../../constants/routes";
-import { Loader } from "../../components/Loader/Loader";
-import { useDispatch, useSelector } from "react-redux";
-import { setProductsThunk } from "../../store/thunks/productsThunk";
-import { useQSParams } from "../../hooks/useQSParams";
-import { Pagination } from "antd";
-import { defaultLimit } from "../../constants/constants";
-import { Helmet } from "../../components/Helmet/Helmet";
-import { useEffect, useState } from "react";
-import { getActivePanels } from "../../utils/utils";
+import { FilterMenu } from './components/FilterMenu/FilterMenu';
+import { ProductCard } from './components/ProductCard/ProductCard';
+import { SortPanel } from './components/SortPanel/SortPanel';
+import s from './Shop.module.scss';
+import { Link } from 'react-router-dom';
+import { PRODUCT_ROUTE } from '../../constants/routes';
+import { Loader } from '../../components/Loader/Loader';
+import { useDispatch, useSelector } from 'react-redux';
+import { setProductsThunk } from '../../store/thunks/productsThunk';
+import { useQSParams } from '../../hooks/useQSParams';
+import { Pagination } from 'antd';
+import { defaultLimit } from '../../constants/constants';
+import { Helmet } from '../../components/Helmet/Helmet';
+import { useEffect, useState } from 'react';
+import { getActivePanels } from '../../utils/utils';
 
 export const Shop = () => {
   const dispatch = useDispatch();
   const { products, loading, total } = useSelector((state) => state.products);
   const [activePanels, setActivePanels] = useState([]);
-  const [selectedSorting, setSelectedSorting] = useState("");
+  const [selectedSorting, setSelectedSorting] = useState('');
 
   const onParamsChange = (queryStr) => {
     dispatch(setProductsThunk(queryStr));
@@ -35,7 +35,7 @@ export const Shop = () => {
 
   const defaultSelectedFilters = [color, size, type]
     .map((value) => {
-      return value?.split(",") || "";
+      return value?.split(',') || '';
     })
     .flat();
 
@@ -60,6 +60,7 @@ export const Shop = () => {
           defaultValues={defaultSelectedFilters}
           defaultActivePanels={activePanels}
           setActivePanels={setActivePanels}
+          disabled={!products.length}
         />
         <div className={s.wrapper}>
           <SortPanel

@@ -1,11 +1,11 @@
-import s from "./FilterMenu.module.scss";
-import { useEffect, useMemo } from "react";
-import { setFiltersThunk } from "../../../../store/thunks/filtersThunk";
-import { useDispatch, useSelector } from "react-redux";
-import { SmileFilled } from "@ant-design/icons";
-import { Collapse } from "antd";
-import { CheckboxGroup } from "./components/CheckboxGroup/CheckboxGroup";
-import { Loader } from "../../../../components/Loader/Loader";
+import s from './FilterMenu.module.scss';
+import { useEffect, useMemo } from 'react';
+import { setFiltersThunk } from '../../../../store/thunks/filtersThunk';
+import { useDispatch, useSelector } from 'react-redux';
+import { SmileFilled } from '@ant-design/icons';
+import { Collapse } from 'antd';
+import { CheckboxGroup } from './components/CheckboxGroup/CheckboxGroup';
+import { Loader } from '../../../../components/Loader/Loader';
 
 const { Panel } = Collapse;
 
@@ -14,6 +14,7 @@ export const FilterMenu = ({
   defaultValues,
   defaultActivePanels,
   setActivePanels,
+  disabled,
 }) => {
   const dispatch = useDispatch();
 
@@ -30,7 +31,7 @@ export const FilterMenu = ({
           <SmileFilled
             style={{
               color: `${color}`,
-              fontSize: "18px",
+              fontSize: '18px',
             }}
           />
           <span> {`${id.slice(0, 1).toUpperCase()}${id.slice(1)}`}</span>
@@ -51,22 +52,22 @@ export const FilterMenu = ({
   const checkboxGroups = useMemo(
     () => [
       {
-        header: "Colors",
-        name: "color",
+        header: 'Colors',
+        name: 'color',
         options: colorOptions,
       },
       {
-        header: "Sizes",
-        name: "size",
+        header: 'Sizes',
+        name: 'size',
         options: sizeOptions,
       },
       {
-        header: "Types",
-        name: "type",
+        header: 'Types',
+        name: 'type',
         options: typeOptions,
       },
     ],
-    [typeOptions, colorOptions, sizeOptions]
+    [typeOptions, colorOptions, sizeOptions],
   );
 
   return (
@@ -80,6 +81,7 @@ export const FilterMenu = ({
           className={s.collapse}
           activeKey={defaultActivePanels}
           onChange={(panels) => setActivePanels(panels)}
+          collapsible={disabled ? 'disabled' : ''}
         >
           {checkboxGroups.map(({ header, name, options }) => {
             return (

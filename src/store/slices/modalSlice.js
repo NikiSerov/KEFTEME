@@ -1,18 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  title: "",
+  title: '',
   isShowed: false,
-  modalText: "",
-  type: "",
+  modalText: '',
+  type: '',
 };
 
 const modalSlice = createSlice({
-  name: "modal",
+  name: 'modal',
   initialState,
   reducers: {
     showModal(state, { payload }) {
-      console.log('payload', payload)
       state.isShowed = true;
       state.title = payload.title;
       state.type = payload.type;

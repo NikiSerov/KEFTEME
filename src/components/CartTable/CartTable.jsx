@@ -8,6 +8,8 @@ import { updateCart } from "../../store/thunks/updateCart";
 import { InputQuantity } from "../InputQuantity/InputQuantity";
 import s from "./CartTable.module.scss";
 import { emptyText } from "./constants";
+import CountUp from "react-countup";
+import { useState } from "react";
 
 const columns = [
   {
@@ -63,6 +65,16 @@ const columns = [
     dataIndex: "productTotal",
     key: "productTotal",
     align: "center",
+    render: (total) => (
+      <CountUp
+        end={total}
+        decimals={2}
+        duration={0.7}
+        preserveValue={true}
+        separator={""}
+        prefix={"$"}
+      />
+    ),
   },
 ];
 
@@ -81,7 +93,7 @@ export const CartTable = ({ isCartPage, classname }) => {
       productName: product,
       productImage: product,
       quantity: { product, handleDelete, isCartPage },
-      productTotal: `$${+(product.price * product.quantity).toFixed(2)}`,
+      productTotal: +(product.price * product.quantity).toFixed(2),
     };
   });
 
@@ -92,7 +104,21 @@ export const CartTable = ({ isCartPage, classname }) => {
       dataSource={tableData}
       pagination={false}
       locale={{ emptyText }}
-      footer={() => !!sum && <div className={s.total}>Total: ${sum}</div>}
+      footer={() =>
+        !!sum && (
+          <div className={s.total}>
+            <span>Total: </span>
+            <CountUp
+              end={sum}
+              decimals={2}
+              duration={0.7}
+              preserveValue={true}
+              separator={""}
+              prefix={"$"}
+            />
+          </div>
+        )
+      }
     />
   );
 };
