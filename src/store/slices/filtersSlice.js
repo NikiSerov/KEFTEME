@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { setFiltersThunk } from "../thunks/filtersThunk";
 
 const initialState = {
-  filters: {},
+  filters: null,
   loading: true,
 };
 

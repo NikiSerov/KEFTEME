@@ -37,7 +37,7 @@ export const Account = () => {
       <Helmet title="Your account" />
       <div className={s.accountPage}>
         <div className={s.userDataWrapper}>
-          <h2 className={s.userInfoHeading}>Your info</h2>
+          <p className={s.userInfoHeading}>Your info</p>
           <UserData
             firstName={user.firstName}
             lastName={user.lastName}
@@ -50,7 +50,7 @@ export const Account = () => {
           </div>
         </div>
         <div className={s.usersOrders}>
-          <h2 className={s.usersOrdersHeading}>Your orders</h2>
+          <p className={s.usersOrdersHeading}>Your orders</p>
           <OrdersTable />
         </div>
       </div>

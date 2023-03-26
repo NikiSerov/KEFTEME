@@ -9,11 +9,11 @@ export const InputQuantity = ({ defaultValue, id }) => {
   const [quantityValue, setQuantityValue] = useState(defaultValue);
   const dispatch = useDispatch();
 
-  const handleDec = (e) => {
+  const handleDec = () => {
     if (quantityValue === 1) {
       return;
     }
-    setQuantityValue((value) => (value -= 1));
+    setQuantityValue((value => --value));
     dispatch(updateCart(quantityDecr(id)));
   };
 
@@ -21,7 +21,7 @@ export const InputQuantity = ({ defaultValue, id }) => {
     if (quantityValue === 10) {
       return;
     }
-    setQuantityValue((value) => (value += 1));
+    setQuantityValue((value => ++value));
     dispatch(updateCart(quantityIncr(id)));
   };
 

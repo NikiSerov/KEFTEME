@@ -8,7 +8,7 @@ import { InputController } from "../../../../components/InputController/InputCon
 import { useNavigate } from "react-router-dom";
 import { ACCOUNT_ROUTE } from "../../../../constants/routes";
 import { useDispatch, useSelector } from "react-redux";
-import { logInThunk } from "../../../../store/thunks/userThunks";
+import { logInThunk } from "../../../../store/thunks/authThunks";
 import { useEffect } from "react";
 
 export const LoginForm = () => {

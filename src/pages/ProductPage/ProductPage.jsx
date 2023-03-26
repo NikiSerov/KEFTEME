@@ -63,7 +63,11 @@ export const ProductPage = () => {
     });
   };
 
-  return !!product ? (
+  if(!product) {
+    return <Loader/>
+  }
+
+  return (
     <>
       <Helmet title={product.name} />
       <div className={s.productPage}>
@@ -105,8 +109,5 @@ export const ProductPage = () => {
           </>
         </div>
       </div>
-    </>
-  ) : (
-    <Loader />
-  );
+    </>)
 };

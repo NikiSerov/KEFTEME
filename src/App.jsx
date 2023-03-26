@@ -4,7 +4,8 @@ import { routes } from "./routes";
 import { ConfigProvider } from "antd";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getUserThunk } from "./store/thunks/userThunks";
+import { getUserThunk } from "./store/thunks/authThunks";
+import { themeConfig } from './constants/constants'
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -14,22 +15,7 @@ export const App = () => {
   }, []);
 
   return (
-    <ConfigProvider
-      theme={{
-        token: {
-          colorPrimary: "#36cfc9",
-          colorLink: "#fff",
-          colorLinkHover: "#36cfc9",
-          borderRadius: "10px",
-          colorText: "white",
-          colorBorder: "rgba(255, 255, 255, 0.165)",
-          colorBorderBg: "rgba(255, 255, 255, 0.165)",
-          colorBorderSecondary: "rgba(255, 255, 255, 0.165)",
-          colorBgContainer: "rgba(255, 255, 255, 0.1)",
-          colorHighlight: "#36cfc9",
-        },
-      }}
-    >
+    <ConfigProvider theme={themeConfig}>
       <div>
         <Routes>
           <Route path="/" element={<MainLayout />}>

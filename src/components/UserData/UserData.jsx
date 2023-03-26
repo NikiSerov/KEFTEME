@@ -3,18 +3,18 @@ import s from "./UserData.module.scss";
 export const UserData = ({ firstName, lastName, email }) => {
   return (
     <div className={s.userData}>
-      <p className={s.firstName}>
+      <div>
         <span className={s.accentText}>First name: </span>
         {firstName}
-      </p>
-      <p className={s.lastName}>
+      </div>
+      <div>
         <span className={s.accentText}>Last name: </span>
         {lastName}
-      </p>
-      <p className={s.userEmail}>
+      </div>
+      <div>
         <span className={s.accentText}>Email: </span>
         {email}
-      </p>
+      </div>
     </div>
   );
 };
