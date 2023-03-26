@@ -7,8 +7,6 @@ export const CheckboxGroup = ({
   onFilterChange,
   defaultValues,
 }) => {
-  console.log(defaultValues);
-
   return (
     <Checkbox.Group
       style={{ width: '100%' }}
