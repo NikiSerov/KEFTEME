@@ -33,8 +33,6 @@ export const Shop = () => {
 
   const { sort, color, size, type, page } = selectedParams;
 
-  console.log(color, size, type);
-
   const defaultSelectedFilters = [color, size, type]
     .map((value) => {
       return value?.split(',') || '';

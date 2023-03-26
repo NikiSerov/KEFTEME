@@ -79,7 +79,7 @@ export const FilterMenu = ({
       ) : (
         <Collapse
           className={s.collapse}
-          activeKey={defaultActivePanels}
+          defaultActiveKey={defaultActivePanels}
           onChange={(panels) => setActivePanels(panels)}
           collapsible={disabled ? 'disabled' : ''}
         >
