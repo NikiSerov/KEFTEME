@@ -1,36 +1,22 @@
 import { instance, authInstance } from "./api";
+import { handleResponse } from '../utils/utils'
 
-export const registartion = async (email, firstName, lastName, password) => {
-  try {
-    const response = await instance.post("/signUp", {
-      email,
-      firstName,
-      lastName,
-      password,
-    });
-    return response.data;
-  } catch (err) {
-    return err.response.data;
-  }
+export const registration = async (email, firstName, lastName, password) => {
+  return await handleResponse(instance.post("/signUp", {
+    email,
+    firstName,
+    lastName,
+    password,
+  }));
 };
 
 export const logIn = async (email, password) => {
-  try {
-    const response = await instance.post("/login", {
-      email,
-      password,
-    });
-    return response.data;
-  } catch (err) {
-    return err.response.data;
-  }
+  return await handleResponse(instance.post("/login", {
+    email,
+    password,
+  }))
 };
 
 export const getUser = async () => {
-  try {
-    const response = await authInstance.get("/me");
-    return response.data;
-  } catch (err) {
-    return err.response.data;
-  }
+  return await handleResponse(authInstance.get("/me"))
 };

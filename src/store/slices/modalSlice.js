@@ -12,6 +12,7 @@ const modalSlice = createSlice({
   initialState,
   reducers: {
     showModal(state, { payload }) {
+      console.log('payload', payload)
       state.isShowed = true;
       state.title = payload.title;
       state.type = payload.type;

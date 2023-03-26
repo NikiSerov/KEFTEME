@@ -11,6 +11,7 @@ export const InputField = forwardRef(
           placeholder={placeHolder}
           className={classname}
           type={type}
+          name={name}
           ref={ref}
           {...props}
         />

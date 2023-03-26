@@ -8,6 +8,7 @@ export const Error403 = () => {
   const handleLogInClick = () => {
     navigate(AUTH_ROUTE);
   };
+
   return (
     <>
       <Helmet titel="Access error" />

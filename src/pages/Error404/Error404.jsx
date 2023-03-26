@@ -8,6 +8,7 @@ export const Error404 = () => {
   const handleClick = () => {
     navigate(SHOP_ROUTE);
   };
+
   return (
     <>
       <Helmet title="404" />

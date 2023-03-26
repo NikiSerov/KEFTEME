@@ -10,6 +10,7 @@ export const OrderSuccess = () => {
   const handleClick = () => {
     navigate(ACCOUNT_ROUTE);
   };
+
   return (
     <>
       <Helmet title="Success!" />

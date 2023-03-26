@@ -1,1 +1,1 @@
-export const emptyText = "Your have no active orders";
+export const emptyCartText = "Your have no active orders";

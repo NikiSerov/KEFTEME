@@ -6,7 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { schema } from "./schema";
 import { InputController } from "../../../../components/InputController/InputController";
 import { useDispatch, useSelector } from "react-redux";
-import { registerThunk } from "../../../../store/thunks/userThunks";
+import { registerThunk } from "../../../../store/thunks/authThunks";
 
 export const RegisterForm = ({ handleSuccess }) => {
   const dispatch = useDispatch();
@@ -14,6 +14,7 @@ export const RegisterForm = ({ handleSuccess }) => {
   const registrationForm = useForm({
     resolver: yupResolver(schema),
   });
+
   const onSubmit = async ({ email, firstName, lastName, password }) => {
     const response = await dispatch(
       registerThunk({
