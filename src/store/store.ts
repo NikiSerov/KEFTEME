@@ -1,4 +1,4 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import authReducer from "./slices/authSlice";
 import cartReducer from "./slices/cartSlice";
 import modalReducer from "./slices/modalSlice";
@@ -32,7 +32,16 @@ export const store = configureStore({
   preloadedState,
 });
 
-export type RootState = ReturnType<typeof store.getState>;
+const rootReducer = combineReducers({ 
+  auth: authReducer,
+  cart: cartReducer,
+  modal: modalReducer,
+  orders: ordersReducer,
+  filters: filtersReducer,
+  products: productsReducer
+});
+
+export type RootState = ReturnType<typeof rootReducer>;
 export type AppDispatch = typeof store.dispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useReduxSelector;
 export const useAppDispatch = () => useDispatch<AppDispatch>();

@@ -1,4 +1,7 @@
-export const cartListenerMiddleware =
+import { Middleware } from '@reduxjs/toolkit';
+import { RootState } from '../store';
+
+const cartListenerMiddleware: Middleware<{}, RootState> =
   ({ getState }) =>
   (next) =>
   (action) => {
@@ -8,3 +11,5 @@ export const cartListenerMiddleware =
     }
     return result;
   };
+
+export {cartListenerMiddleware}
