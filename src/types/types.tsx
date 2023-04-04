@@ -58,7 +58,7 @@ export interface Input {
   type?: string;
 }
 
-export interface DeliveryOption {
+export interface SelectOption {
   value: string;
   label: string;
 }

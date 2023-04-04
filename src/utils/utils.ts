@@ -1,6 +1,6 @@
 import { AxiosResponse } from "axios";
 
-export const getActivePanels = ({ color, size, type }) => {
+export const getActivePanels = ({ color, size, type }: {[key: string]: string | undefined}) => {
   return Object.values({
     color: color && 'color',
     size: size && 'size',

@@ -13,13 +13,16 @@ import { Helmet } from '../../components/Helmet/Helmet';
 import { useEffect, useState, FC } from 'react';
 import { getActivePanels } from '../../utils/utils';
 import { useAppDispatch, useAppSelector } from '../../store/store';
+import { Product } from '../../types/types';
 
 export const Shop: FC = () => {
   const dispatch = useAppDispatch();
   const { products, loading, total } = useAppSelector(
     (state) => state.products,
   );
-  const [activePanels, setActivePanels] = useState<string | string[]>([]);
+  const [activePanels, setActivePanels] = useState<Array<string | undefined>>(
+    [],
+  );
   const [selectedSorting, setSelectedSorting] = useState('');
 
   const onParamsChange = (queryStr: string) => {
@@ -49,8 +52,8 @@ export const Shop: FC = () => {
     setSelectedSorting(sort);
   }, [sort]);
 
-  const onPaginationChange = (page) => {
-    handlePagination(page);
+  const onPaginationChange = (page: number) => {
+    handlePagination(page.toString());
   };
 
   return (
@@ -74,7 +77,7 @@ export const Shop: FC = () => {
             {loading ? (
               <Loader />
             ) : (
-              products.map((product) => {
+              products.map((product: Product) => {
                 return (
                   <Link
                     to={`${PRODUCT_ROUTE}/${product.id}`}

@@ -97,7 +97,6 @@ export const FilterMenu: FC<FilterMenuProps> = ({
             return (
               <Panel header={header} className={s.panel} key={name}>
                 <CheckboxGroup
-                  header={header}
                   name={name}
                   options={options}
                   onFilterChange={onFilterChange}

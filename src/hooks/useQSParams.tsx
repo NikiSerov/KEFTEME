@@ -2,11 +2,11 @@ import { CheckboxValueType } from 'antd/es/checkbox/Group';
 import { useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-export const useQSParams = (onParamsChange) => {
+export const useQSParams = (onParamsChange: (value: string) => void) => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    onParamsChange(searchParams);
+    onParamsChange(searchParams.toString());
   }, [searchParams]);
 
   const handleFilterChange = (
@@ -28,7 +28,7 @@ export const useQSParams = (onParamsChange) => {
     }
   };
 
-  const handleSortingChange = (sortParam) => {
+  const handleSortingChange = (sortParam: string) => {
     setSearchParams((searchParams) => {
       searchParams.set('sort', sortParam);
       searchParams.set('page', '1');
@@ -36,7 +36,7 @@ export const useQSParams = (onParamsChange) => {
     });
   };
 
-  const handlePagination = (page) => {
+  const handlePagination = (page: string) => {
     setSearchParams((searchParams) => {
       searchParams.set('page', page);
       return searchParams;

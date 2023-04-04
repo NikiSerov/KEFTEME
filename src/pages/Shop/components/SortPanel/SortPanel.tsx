@@ -1,24 +1,25 @@
 import { Select } from 'antd';
 import s from './SortPanel.module.scss';
+import { sortParams } from './constants';
+import { FC } from 'react';
 
-const sortParams = [
-  { value: 'default', label: 'Featured' },
-  { value: 'price-ASC', label: 'Price: Low to High' },
-  { value: 'price-DESC', label: 'Price: High to Low' },
-  { value: 'name-ASC', label: 'A - Z' },
-  { value: 'name-DESC', label: 'Z - A' },
-];
+interface SortPanelProps {
+  productsCount: number;
+  onSortingChange: (sortParam: string) => void;
+  selectedSorting?: string;
+}
 
-export const SortPanel = ({
+export const SortPanel: FC<SortPanelProps> = ({
   productsCount,
   onSortingChange,
   selectedSorting,
 }) => {
-  let selectedSortParam = sortParams[0];
+  let selectedSortParam = sortParams[0].value;
   if (selectedSorting) {
-    selectedSortParam = sortParams.find(
+    const selectedOption = sortParams.find(
       (item) => item.value === selectedSorting,
     );
+    selectedSortParam = selectedOption.value;
   }
 
   return (

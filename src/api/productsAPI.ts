@@ -3,8 +3,8 @@ import { Color, ProductsResponse, Product, Shoetype, Size } from "../types/types
 import { handleResponse } from "../utils/utils";
 import { instance } from "./api";
 
-export const getProducts = async (queryString: string | undefined = "") => {
-  const qs: string = queryString ? `&${queryString}` : queryString;
+export const getProducts = async (queryString = "") => {
+  const qs = !!queryString ? `&${queryString}` : queryString;
   return await handleResponse<ProductsResponse>(instance.get(`/products/?limit=${defaultLimit}${qs}`));
 };
 

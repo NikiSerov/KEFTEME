@@ -1,4 +1,4 @@
-import { DeliveryOption, Input } from "../../../../types/types";
+import { Input, SelectOption } from "../../../../types/types";
 
 export const orderFormInputs: Input[] = [
   {
@@ -20,7 +20,7 @@ export const orderFormInputs: Input[] = [
   },
 ];
 
-export const deliveryOptions: DeliveryOption[] = [
+export const deliveryOptions: SelectOption[] = [
   {
     value: 'express',
     label: 'Express',

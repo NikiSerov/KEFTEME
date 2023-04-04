@@ -1,6 +1,5 @@
 import { Checkbox, CheckboxOptionType } from 'antd';
 import { CheckboxValueType } from 'antd/es/checkbox/Group';
-import React from 'react';
 import { FC } from 'react';
 import s from './CheckboxGroup.module.scss';
 
@@ -8,7 +7,7 @@ interface CheckboxGroupProps {
   name: string;
   options: CheckboxOptionType[];
   defaultValues: CheckboxValueType[];
-  onFilterChange: (checkedValue: CheckboxValueType[], name: string) => void;
+  onFilterChange: (checkedValues: CheckboxValueType[], name: string) => void;
 }
 
 export const CheckboxGroup: FC<CheckboxGroupProps> = ({
@@ -24,7 +23,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
         options={options}
         className={s.checkboxGroup}
         name={name}
-        onChange={(checkedValue) => onFilterChange(checkedValue, name)}
+        onChange={(checkedValues) => onFilterChange(checkedValues, name)}
         defaultValue={defaultValues}
       />
     </>
