@@ -1,31 +1,34 @@
-import { Input } from 'antd';
+import { Input, InputRef } from 'antd';
 import { ErrorMessage } from '@hookform/error-message';
 import s from './Input.module.scss';
 import { forwardRef } from 'react';
-import { CompoundedComponent } from 'antd/es/float-button/interface';
 import { FieldErrors, FieldValues } from 'react-hook-form';
 
 type InputFieldProps = {
-  classname: string;
   errors: FieldErrors<FieldValues>;
   placeHolder: string;
   name: string;
   type?: string;
+  value: string;
+  onChange: (...event: any[]) => void;
+  onBlur: VoidFunction;
 };
 
-type Ref = CompoundedComponent;
-
-export const InputField = forwardRef<InputFieldProps, Ref>(
-  ({ placeHolder, classname, name, errors, type = 'text', ...props }, ref) => {
+export const InputField = forwardRef<InputRef, InputFieldProps>(
+  (
+    { placeHolder, name, errors, type = 'text', value, onChange, onBlur },
+    ref,
+  ) => {
     return (
       <div className={s.inputContainer}>
         <Input
           placeholder={placeHolder}
-          className={classname}
           type={type}
           name={name}
           ref={ref}
-          {...props}
+          value={value}
+          onChange={onChange}
+          onBlur={onBlur}
         />
         {!!errors && (
           <ErrorMessage

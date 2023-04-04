@@ -11,7 +11,7 @@ import { logInThunk } from '../../../../store/thunks/authThunks';
 import { FC, useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../../store/store';
 
-export const LoginForm = () => {
+export const LoginForm: FC = () => {
   const loginForm = useForm({
     resolver: yupResolver(schema),
   });
