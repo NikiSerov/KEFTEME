@@ -8,8 +8,9 @@ import { resetModal } from '../../store/slices/modalSlice';
 import bgVideo from '../../assets/videos/bgVideo.mp4';
 import bg74_preview from '../../assets/images/bg74_preview.jpg';
 import { useAppDispatch, useAppSelector } from '../../store/store';
+import { FC } from 'react';
 
-export const MainLayout = () => {
+export const MainLayout: FC = () => {
   const { title, isShowed, modalText, type } = useAppSelector(
     (state) => state.modal,
   );
