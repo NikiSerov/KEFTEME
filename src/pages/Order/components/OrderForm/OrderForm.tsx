@@ -10,8 +10,9 @@ import s from './OrderForm.module.scss';
 import { ORDER_SUCCESS_ROUTE } from '../../../../constants/routes';
 import { schema } from './schema';
 import { useAppDispatch, useAppSelector } from '../../../../store/store';
+import { FC } from 'react';
 
-export const OrderForm = () => {
+export const OrderForm: FC = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { processing } = useAppSelector((state) => state.orders);

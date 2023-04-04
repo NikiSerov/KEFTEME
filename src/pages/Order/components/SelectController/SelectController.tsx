@@ -2,13 +2,13 @@ import { ErrorMessage } from '@hookform/error-message';
 import { Select } from 'antd';
 import { FC } from 'react';
 import { Controller, UseFormReturn } from 'react-hook-form';
-import { DeliveryOption } from '../../../../types/types';
+import { SelectOption } from '../../../../types/types';
 import s from './Select.module.scss';
 
 interface SelectControllerProps {
   name: string;
   useFormConfig: UseFormReturn;
-  options: DeliveryOption[];
+  options: SelectOption[];
   wrapperClass: string;
   label?: string;
 }

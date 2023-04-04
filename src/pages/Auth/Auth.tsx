@@ -1,11 +1,11 @@
-import { LoginForm } from "./components/LoginForm/LoginForm";
-import { RegisterForm } from "./components/RegisterForm/RegisterForm";
-import s from "./Auth.module.scss";
-import { Button } from "antd";
-import { useState } from "react";
-import { Helmet } from "../../components/Helmet/Helmet";
+import { LoginForm } from './components/LoginForm/LoginForm';
+import { RegisterForm } from './components/RegisterForm/RegisterForm';
+import s from './Auth.module.scss';
+import { Button } from 'antd';
+import { FC, useState } from 'react';
+import { Helmet } from '../../components/Helmet/Helmet';
 
-export const Auth = () => {
+export const Auth: FC = () => {
   const [isLoginForm, setIsLoginForm] = useState(true);
   const handleRegistrationSuccess = () => {
     setIsLoginForm(true);
@@ -13,7 +13,7 @@ export const Auth = () => {
 
   return (
     <>
-      <Helmet title={isLoginForm ? "Login" : "Register"} />
+      <Helmet title={isLoginForm ? 'Login' : 'Register'} />
       <div className={s.authContainer}>
         <div className={s.auth}>
           {isLoginForm ? (
@@ -27,7 +27,7 @@ export const Auth = () => {
             className={s.switchButton}
             onClick={() => setIsLoginForm((prev) => !prev)}
           >
-            {isLoginForm ? "Register" : "Login"}
+            {isLoginForm ? 'Register' : 'Login'}
           </Button>
         </div>
       </div>
