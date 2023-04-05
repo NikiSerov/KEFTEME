@@ -1,3 +1,81 @@
+<br/>
+<p align="center">
+  <a href="https://github.com/NikiHBC/react-market">
+    <img src="public/favicon.png" alt="Logo" width="80" height="80">
+  </a>
+
+  <h3 align="center">KEFTEME</h3>
+
+  <p align="center">
+    Online sneaker store.
+    <br/>
+    <br/>
+    <a href="https://github.com/NikiHBC/react-market">View Demo</a>
+    .
+    <a href="https://github.com/NikiHBC/react-market/issues">Report Bug</a>
+    .
+    <a href="https://github.com/NikiHBC/react-market/issues">Request Feature</a>
+  </p>
+</p>
+
+
+
+## Table Of Contents
+
+* [About the Project](#about-the-project)
+* [Getting Started](#getting-started)
+  * [Installation](#installation)
+* [Usage](#usage)
+* [Contributing](#contributing)
+* [Authors](#authors)
+* [Acknowledgements](#acknowledgements)
+
+## About The Project
+
+![Screen Shot](https://i.ibb.co/n64X7Gq/2023-04-05-19-13-11.jpg)
+
+E-commerce pet-project - online sneaker store.
+
+## Getting Started
+
+This project was bootstrapped with Create React App, using the Redux and Redux Toolkit template.To get a local copy up and running follow these simple example steps.
+
+### Installation
+
+1. Git-clone repository or download ZIP 
+2. Open it in your code editor
+3. npm start
+
+In the project directory, you can run:
+
+npm start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in your browser.
+
+The page will reload when you make changes.
+You may also see any lint errors in the console.
+
+
+
+## Usage
+
+In the project directory, you can run:
+
+npm start
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in your browser.
+
+The page will reload when you make changes.
+You may also see any lint errors in the console.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+## Authors
+
+* **Nikita Serov** - ** - [Nikita Serov](https://github.com/NikiSerov) - *Frontend*
+* **Artemy Kairyak** - ** - [Artemy Kairyak](https://github.com/artemykairyak) - *Backend*
+
+
 # Getting Started with Create React App and Redux
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
