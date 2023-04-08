@@ -58,7 +58,7 @@ You may also see any lint errors in the console.
 
 1. You can add products to your shopping cart and make an order.
 2. The cart is stored in the browser's local storage, so when you reload the page, the products will remain in it.
-2. To make an order you should be authorized. The application has an authorization based on generating a unique token on the backend. The token, like the cart, is stored in local storage, so when the page is reloaded, the app is requesting user authorization.
+2. To make an order you should be authorized. The application has an authorization based on generating the JWT token on the backend. The token, like the cart, is stored in local storage, so when the page is reloaded, the app is requesting user authorization.
 4. You can sort products by color, size and type.
 5. You can check your orders on account page.
 
