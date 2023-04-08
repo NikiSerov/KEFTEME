@@ -47,6 +47,7 @@ This project was bootstrapped with Create React App, using the Redux and Redux T
 
 1. Git-clone repository or download ZIP 
 2. Open it in your code editor
+3. `npm i` to install packages
 3. Enter `npm start` in terminal
 4. Open http://localhost:3000 to view it in your browser.
 
