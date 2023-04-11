@@ -10,7 +10,7 @@
     padding: 0 40px;
     position: relative;
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(30px);
+    backdrop-filter: $blur;
     background: rgba(255, 255, 255, 0.1);
 }
 

@@ -1,12 +1,14 @@
 @import "../../styles/variables.module.scss";
 
 .logo {
-    font-size: 36px;
-    font-weight: 700;
-    color: $cyan;
-    transition: color 0.4s;
+    svg path {
+        fill: $cyan;
+        transition: fill 0.4s;
+    }
 
     &:hover {
-        color: $lighterCyan;
+        svg path {
+            fill: $lighterCyan;
+        }
     }
 }

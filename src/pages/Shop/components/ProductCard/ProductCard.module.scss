@@ -10,9 +10,9 @@
     gap: 10px;
     cursor: pointer;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.165) !important;
-    backdrop-filter: blur(35px) !important;
-    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.165);
+    backdrop-filter: $blur;
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     animation: fadeIn 0.7s;
 
@@ -51,12 +51,20 @@
 }
 
 @media (max-width: 1350px) {
+    .productCard {
+        height: 355px;
+    }
+
     .image {
         height: 230px;
     }
 }
 
 @media (max-width: 1250px) {
+    .productCard {
+        height: 325px;
+    }
+
     .image {
         height: 200px;
     }

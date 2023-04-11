@@ -39,7 +39,7 @@ button {
 }
 
 input {
-    backdrop-filter: blur(35px) !important;
+    backdrop-filter: blur(25px) !important;
 }
 
 input::placeholder,
@@ -81,17 +81,17 @@ textarea {
 }
 
 .ant-table-thead {
-    backdrop-filter: blur(35px) !important;
+    backdrop-filter: blur(25px) !important;
 }
 
 .ant-table-footer {
     border-radius: 0 0 10px 10px;
-    backdrop-filter: blur(35px) !important;
+    backdrop-filter: blur(25px) !important;
 }
 
 .ant-collapse {
     border: 2px solid rgba(255, 255, 255, 0.165) !important;
-    backdrop-filter: blur(35px) !important;
+    backdrop-filter: blur(25px) !important;
     background: rgba(255, 255, 255, 0.1) !important;
 }
 
@@ -108,7 +108,7 @@ textarea {
 }
 
 .ant-select-selector {
-    backdrop-filter: blur(35px) !important;
+    backdrop-filter: blur(25px) !important;
 }
 
 .ant-select-selection-item {
@@ -125,7 +125,7 @@ textarea {
 
 .ant-select-dropdown {
     background: rgba(255, 255, 255, 0.1) !important;
-    backdrop-filter: blur(35px) !important;
+    backdrop-filter: blur(25px) !important;
     border: 1px solid rgba(255, 255, 255, 0.165) !important;
     box-shadow: 0 0 80px rgba(0, 0, 0, 0.25) !important;
 }
