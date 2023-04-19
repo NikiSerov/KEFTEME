@@ -64,7 +64,7 @@ You may also see any lint errors in the console.
 
 ## Authors
 
-**[Nikita Serov](https://github.com/NikiSerov)** - *Frontend*  
+**[Nikita Serov](https://github.com/NikiSerov)** - *Frontend*, *Design*  
 **[Artemy Kairyak](https://github.com/artemykairyak)** - *Backend*
 
 ## Link
