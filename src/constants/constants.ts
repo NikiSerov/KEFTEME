@@ -10,4 +10,4 @@ export const modalTypes: ModalTypes = {
   error: "error",
 };
 
-export const defaultLimit = 8;
+export const defaultLimit = 12;

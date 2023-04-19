@@ -183,3 +183,26 @@ textarea {
     z-index: -1;
     filter: brightness(70%);
 }
+
+@media (max-width: 920px) {
+    .ant-collapse-item {
+        border: none !important;
+    }
+
+    .ant-collapse {
+        background: transparent !important;
+        border: none !important;
+        margin-bottom: 5px;
+        backdrop-filter: none !important;
+    }
+
+    .ant-collapse-content {
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+
+    .ant-collapse-content-box {
+        padding: 5px !important;
+    }
+}

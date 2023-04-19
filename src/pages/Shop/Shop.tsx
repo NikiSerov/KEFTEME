@@ -24,9 +24,14 @@ export const Shop: FC = () => {
     [],
   );
   const [selectedSorting, setSelectedSorting] = useState('');
+  const [isFilterMenuOpened, setIsFilterMenuOpen] = useState(false);
 
   const onParamsChange = (queryStr: string) => {
     dispatch(setProductsThunk(queryStr));
+  };
+
+  const handleOpenFilterMenu = () => {
+    setIsFilterMenuOpen((state) => (state = !state));
   };
 
   const {
@@ -66,12 +71,15 @@ export const Shop: FC = () => {
           defaultActivePanels={activePanels}
           setActivePanels={setActivePanels}
           disabled={!products.length}
+          isFilterMenuOpened={isFilterMenuOpened}
+          handleOpenFilterMenu={handleOpenFilterMenu}
         />
         <div className={s.wrapper}>
           <SortPanel
             productsCount={total}
             onSortingChange={handleSortingChange}
             selectedSorting={selectedSorting}
+            handleOpenFilterMenu={handleOpenFilterMenu}
           />
           <div className={s.productsContainer}>
             {loading ? (

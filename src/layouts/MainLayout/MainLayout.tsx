@@ -24,7 +24,15 @@ export const MainLayout: FC = () => {
   return (
     <div className={s.mainLayout}>
       <Header />
-      <video id="background-video" autoPlay loop muted poster={bg74_preview}>
+      <video
+        id="background-video"
+        autoPlay
+        loop
+        muted
+        poster={bg74_preview}
+        playsInline
+        disablePictureInPicture
+      >
         <source src={bgVideo} type="video/mp4" />
       </video>
       <ContentLayout>

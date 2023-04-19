@@ -7,3 +7,13 @@
         opacity: 1;
     }
 }
+
+@keyframes slideInLeft {
+    from {
+        left: -230px
+    }
+
+    to {
+        left: 10px;
+    }
+}

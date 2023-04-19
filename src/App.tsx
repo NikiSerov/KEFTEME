@@ -27,6 +27,7 @@ export const App: FC = () => {
           colorBorderSecondary: 'rgba(255, 255, 255, 0.165)',
           colorBgContainer: 'rgba(255, 255, 255, 0.1)',
           colorHighlight: '#36cfc9',
+          fontFamily: 'Roboto, sans-serif',
         },
       }}
     >

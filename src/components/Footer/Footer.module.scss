@@ -16,6 +16,9 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .socialsContainer {

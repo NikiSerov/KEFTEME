@@ -1,12 +1,13 @@
 @import "../../../../styles/variables.module.scss";
+@import "../../../../styles/animations.module.scss";
 
 .filterMenu {
     width: 170px;
     position: relative;
 }
 
-.filterLoaderWrapper {
-    height: 150px;
+.filterMenu.show {
+    display: flex;
 }
 
 .collapse {
@@ -26,4 +27,35 @@
 
 .panel {
     background-color: white;
+}
+
+.closeFilterMenuBtn {
+    margin: 10px;
+}
+
+@media (max-width: 980px) {
+    .filterMenu {
+        width: 160px;
+    }
+
+    .collapse {
+        width: 160px;
+    }
+}
+
+@media (max-width: 920px) {
+    .filterMenu {
+        display: none;
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        z-index: 100;
+        width: 230px;
+        border: 2px solid rgba(255, 255, 255, 0.165);
+        border-radius: 10px !important;
+        -webkit-backdrop-filter: blur(25px);
+        backdrop-filter: blur(25px) brightness(85%);
+        animation: slideInLeft 0.25s ease-in-out;
+        background: rgba(255, 255, 255, 0.1) !important;
+    }
 }

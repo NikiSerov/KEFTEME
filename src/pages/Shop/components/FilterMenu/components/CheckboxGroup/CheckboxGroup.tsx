@@ -8,6 +8,7 @@ interface CheckboxGroupProps {
   options: CheckboxOptionType[];
   defaultValues: CheckboxValueType[];
   onFilterChange: (checkedValues: CheckboxValueType[], name: string) => void;
+  disabled: boolean;
 }
 
 export const CheckboxGroup: FC<CheckboxGroupProps> = ({
@@ -15,6 +16,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
   options,
   onFilterChange,
   defaultValues,
+  disabled,
 }) => {
   return (
     <>
@@ -25,6 +27,7 @@ export const CheckboxGroup: FC<CheckboxGroupProps> = ({
         name={name}
         onChange={(checkedValues) => onFilterChange(checkedValues, name)}
         defaultValue={defaultValues}
+        disabled={disabled}
       />
     </>
   );

@@ -6,8 +6,35 @@
     align-items: center;
     margin-bottom: 30px;
     width: 100%;
+    position: relative;
+}
+
+.filterButton {
+    width: 90px;
+    transition: opacity 0.2s;
+}
+
+.filterButton.pressed {
+    opacity: 0;
+}
+
+.sortSelect {
+    width: 200px;
 }
 
 .productsCount {
     font-size: 18px;
+}
+
+@media (max-width: 920px) {
+    .sortSelect {
+        width: 160px;
+    }
+
+    .productsCount {
+        font-size: 14px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
