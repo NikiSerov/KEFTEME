@@ -25,7 +25,7 @@
 
 ## About The Project
 
-![Screen Shot](https://i.ibb.co/4SC1wm5/2023-04-05-19-13-11-1.jpg)
+![Screen Shot](https://i.ibb.co/PcfwfWh/2023-04-19-19-29-52.jpg)
 
 E-commerce pet-project - online sneaker store.
 
