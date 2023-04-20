@@ -14,7 +14,7 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
-.shop {
+.shopLink {
     font-size: 24px;
     color: white;
     transition: color 0.4s;
@@ -90,4 +90,70 @@
 .shoppingcarticon {
     width: 30px;
     height: 30px;
+}
+
+@media (max-width: 650px) {
+    .shopLink {
+        font-size: 20px;
+    }
+
+    .buttonContainer {
+        gap: 30px;
+    }
+}
+
+@media (max-width: 550px) {
+    .buttonContainer {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .header {
+        height: 80px;
+        padding: 0 30px;
+    }
+
+    .buttonContainer {
+        gap: 15px;
+    }
+
+    .cartIcon {
+        width: 28px;
+    }
+
+    .accountIcon {
+        width: 24px;
+    }
+}
+
+@media (max-width: 450px) {
+    .header {
+        height: 70px;
+        padding-right: 25px;
+    }
+
+    .shopLink {
+        font-size: 18px;
+    }
+
+    .buttonContainer {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 375px) {
+    .header {
+        padding: 0 15px 0 20px;
+    }
+}
+
+@media (max-width: 350px) {
+    .cart {
+        padding: 0;
+    }
+
+    .account {
+        padding: 0;
+    }
 }

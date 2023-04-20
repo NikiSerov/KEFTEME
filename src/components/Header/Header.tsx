@@ -11,10 +11,12 @@ import s from './Header.module.scss';
 import { Logo } from '../Logo/Logo';
 import { Loader } from '../Loader/Loader';
 import { useAppSelector } from '../../store/store';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export const Header = () => {
   const products = useAppSelector((state) => state.cart.products);
   const { logged, loading } = useAppSelector((state) => state.auth);
+  const { width: screenWidth } = useWindowDimensions();
 
   const getAccountButton = () => {
     if (loading) {
@@ -35,7 +37,7 @@ export const Header = () => {
 
     return (
       <Link to={AUTH_ROUTE}>
-        <Button size="large">Log In</Button>
+        <Button size={screenWidth <= 650 ? 'middle' : 'large'}>Log In</Button>
       </Link>
     );
   };
@@ -43,7 +45,7 @@ export const Header = () => {
   return (
     <div className={s.header}>
       <Logo />
-      <Link to={SHOP_ROUTE} className={s.shop}>
+      <Link to={SHOP_ROUTE} className={s.shopLink}>
         Shop
       </Link>
       <div className={s.buttonContainer}>

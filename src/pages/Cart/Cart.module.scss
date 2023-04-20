@@ -34,3 +34,23 @@
 .total {
     font-size: 18px;
 }
+
+@media (max-width: 900px) {
+    .cartTable {
+        width: 90%;
+    }
+
+    .buttonsContainer {
+        width: 90%;
+    }
+}
+
+@media (max-width: 800px) {
+    .cartTable {
+        width: 100%;
+    }
+
+    .buttonsContainer {
+        width: 100%;
+    }
+}

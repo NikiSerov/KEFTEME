@@ -38,3 +38,20 @@
         transform: translateX(-50%);
     }
 }
+
+@media (max-width: 650px) {
+    .sortPanel {
+        padding-bottom: 50px;
+        margin-bottom: 0;
+    }
+
+    .productsCount {
+        top: 47px;
+        left: 0;
+        transform: none;
+    }
+
+    .sortSelect {
+        width: 150px;
+    }
+}

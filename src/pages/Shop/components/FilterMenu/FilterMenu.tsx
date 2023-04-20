@@ -117,7 +117,7 @@ export const FilterMenu: FC<FilterMenuProps> = ({
       </Collapse>
       {screenWidth <= 920 && (
         <Button onClick={handleOpenFilterMenu} className={s.closeFilterMenuBtn}>
-          <CloseOutlined />
+          Close filters
         </Button>
       )}
     </div>

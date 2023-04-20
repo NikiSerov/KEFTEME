@@ -41,3 +41,9 @@
         background-color: $lighterMagenta;
     }
 }
+
+@media (max-width: 650px) {
+    .formHeading {
+        font-size: 20px;
+    }
+}

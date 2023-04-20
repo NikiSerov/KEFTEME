@@ -12,3 +12,15 @@
         padding: 0 40px;
     }
 }
+
+@media (max-width: 500px) {
+    .wrapper {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 375px) {
+    .wrapper {
+        padding: 0 20px;
+    }
+}

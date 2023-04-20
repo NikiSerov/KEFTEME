@@ -72,7 +72,10 @@ const columns: ColumnsType<ColumnData> = [
       isCartPage ? (
         <div className={s.quantityWrapper}>
           <InputQuantity defaultValue={product.quantity} id={product.id} />
-          <Button onClick={() => handleDelete(product.id)}>
+          <Button
+            onClick={() => handleDelete(product.id)}
+            className={s.deleteBtn}
+          >
             <DeleteOutlined />
           </Button>
         </div>

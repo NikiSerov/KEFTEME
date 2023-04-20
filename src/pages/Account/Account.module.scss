@@ -43,3 +43,9 @@
 .usersOrders {
     width: 80%;
 }
+
+@media (max-width: 1250px) {
+    .usersOrders {
+        width: 75%;
+    }
+}

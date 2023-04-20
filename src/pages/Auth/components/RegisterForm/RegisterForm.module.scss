@@ -38,3 +38,9 @@
 .registerButton {
     margin-top: 10px;
 }
+
+@media (max-width: 650px) {
+    .formHeading {
+        font-size: 20px;
+    }
+}

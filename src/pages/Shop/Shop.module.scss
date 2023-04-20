@@ -65,3 +65,34 @@
         margin-bottom: 30px;
     }
 }
+
+@media (max-width: 800px) {
+    .productLink {
+        width: 30%;
+    }
+}
+
+@media (max-width: 700px) {
+    .productsContainer {
+        padding-bottom: 10px;
+    }
+
+    .productLink {
+        width: 31%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 650px) {
+    .productLink {
+        width: 48%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 350px) {
+    .productLink {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

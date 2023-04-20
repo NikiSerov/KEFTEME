@@ -28,9 +28,12 @@
     justify-content: space-between;
 }
 
+.socialLink {
+    padding: 10px;
+}
+
 .socialIcon {
     color: $cyan;
-    padding: 10px;
     transition: color 0.4s;
 
     svg {
@@ -40,5 +43,129 @@
 
     &:hover {
         color: $lighterCyan;
+    }
+}
+
+
+@media (max-width: 920px) {
+    .inputLabel {
+        font-size: 18px;
+    }
+
+    .inputContainer {
+        width: 340px;
+    }
+
+    .socialsContainer {
+        width: 140px;
+    }
+}
+
+@media (max-width: 730px) {
+    .socialsContainer {
+        width: 120px;
+    }
+
+    .socialLink {
+        padding: 5px;
+    }
+
+    .socialIcon svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 690px) {
+    .socialsContainer {
+        width: 110px;
+    }
+
+    .inputContainer {
+        width: 300px;
+    }
+}
+
+@media (max-width: 630px) {
+    .footer {
+        padding: 20px 40px;
+    }
+
+    .socialsContainer {
+        flex-direction: column;
+        width: max-content;
+        position: relative;
+    }
+
+    .socialLink:nth-child(2) {
+        position: absolute;
+        top: 17px;
+        left: -37px;
+    }
+}
+
+@media (max-width: 550px) {
+    .footer {
+        height: 180px;
+        align-items: flex-start;
+    }
+
+    .socialsContainer {
+        flex-direction: row;
+        width: 180px;
+    }
+
+    .socialLink {
+        padding: 10px;
+
+        &:nth-child(2) {
+            position: static;
+        }
+    }
+
+    .socialIcon svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .subscribeContainer {
+        position: absolute;
+        bottom: 20px;
+    }
+
+    .inputContainer {
+        width: 370px;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer {
+        padding: 20px 20px 20px 30px;
+    }
+}
+
+@media (max-width: 450px) {
+    .inputContainer {
+        width: 320px;
+    }
+
+    .socialsContainer {
+        width: 150px;
+    }
+}
+
+@media (max-width: 400px) {
+    .inputContainer {
+        width: 300px;
+    }
+}
+
+@media (max-width: 375px) {
+    .footer {
+        padding: 20px 10px 20px 20px;
+    }
+
+    .inputContainer {
+        width: 270px;
     }
 }

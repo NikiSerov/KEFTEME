@@ -43,3 +43,21 @@
     font-size: 18px;
     font-weight: 500;
 }
+
+@media (max-width: 550px) {
+    .auth {
+        width: 380px;
+    }
+}
+
+@media (max-width: 470px) {
+    .auth {
+        width: 90%;
+    }
+}
+
+@media (max-width: 380px) {
+    .auth {
+        width: 95%;
+    }
+}

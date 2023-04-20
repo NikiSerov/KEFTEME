@@ -1,6 +1,9 @@
 @import "../../styles/variables.module.scss";
 
 .logo {
+    width: 55px;
+    height: 55px;
+
     svg path {
         fill: $cyan;
         transition: fill 0.4s;
@@ -9,6 +12,30 @@
     &:hover {
         svg path {
             fill: white;
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .logo {
+        width: 50px;
+        height: 50px;
+
+        svg {
+            width: 50px;
+            height: 50px;
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .logo {
+        width: 45px;
+        height: 45px;
+
+        svg {
+            width: 45px;
+            height: 45px;
         }
     }
 }

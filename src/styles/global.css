@@ -80,12 +80,16 @@ textarea {
     border: 2px solid rgba(255, 255, 255, 0.165) !important;
 }
 
+.ant-table-content table {
+    overflow: hidden !important;
+}
+
 .ant-table-thead {
     backdrop-filter: blur(25px) !important;
 }
 
 .ant-table-footer {
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px !important;
     backdrop-filter: blur(25px) !important;
 }
 
