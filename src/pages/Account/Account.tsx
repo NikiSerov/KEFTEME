@@ -11,11 +11,13 @@ import { Loader } from '../../components/Loader/Loader';
 import { useAuthRedirect } from '../../hooks/useAuthRedirect';
 import { Helmet } from '../../components/Helmet/Helmet';
 import { useAppDispatch, useAppSelector } from '../../store/store';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 export const Account: FC = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { user, loading } = useAppSelector((state) => state.auth);
+  const { width: screenWidth } = useWindowDimensions();
 
   useEffect(() => {
     dispatch(getOrdersThunk());
@@ -38,13 +40,19 @@ export const Account: FC = () => {
       <div className={s.accountPage}>
         <div className={s.userDataWrapper}>
           <p className={s.userInfoHeading}>Your info</p>
-          <UserData
-            firstName={user.firstName}
-            lastName={user.lastName}
-            email={user.email}
-          />
-          <div className={s.buttonContainer}>
-            <Button size="large" onClick={hadleLogOut}>
+          <div className={s.dataBtnContainer}>
+            <div className={s.userData}>
+              <UserData
+                firstName={user.firstName}
+                lastName={user.lastName}
+                email={user.email}
+              />
+            </div>
+            <Button
+              size="large"
+              onClick={hadleLogOut}
+              style={{ width: '100px' }}
+            >
               Log Out
             </Button>
           </div>

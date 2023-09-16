@@ -27,9 +27,11 @@
     margin-bottom: 14px;
 }
 
-.buttonContainer {
-    margin-top: 24px;
-    text-align: center;
+.dataBtnContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
 }
 
 .usersOrdersHeading {
@@ -47,5 +49,36 @@
 @media (max-width: 1250px) {
     .usersOrders {
         width: 75%;
+    }
+}
+
+@media (max-width: 950px) {
+    .accountPage {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .userDataWrapper {
+        width: 100%;
+    }
+
+    .userData {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .dataBtnContainer {
+        flex-direction: row;
+        gap: 24px;
+        align-items: center;
+        position: relative;
+        justify-content: flex-end;
+        height: 150px;
+    }
+
+    .usersOrders {
+        width: 100%;
     }
 }

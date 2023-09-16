@@ -12,7 +12,7 @@
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    justify-content: space-between;
+    gap: calc((100% - 21% * 4) / 3);
 }
 
 .productLink {
@@ -32,12 +32,20 @@
     .productLink {
         width: 22%;
     }
+
+    .productsContainer {
+        gap: calc((100% - 22% * 4) / 3);
+    }
 }
 
 @media (max-width: 1190px) {
     .productLink {
         width: 23%;
         margin-bottom: 30px;
+    }
+
+    .productsContainer {
+        gap: calc((100% - 23% * 4) / 3);
     }
 }
 
@@ -46,12 +54,20 @@
         width: 29.5%;
         margin-bottom: 40px;
     }
+
+    .productsContainer {
+        gap: calc((100% - 29.5% * 3) / 2);
+    }
 }
 
 @media (max-width: 1080px) {
     .productLink {
         width: 30%;
         margin-bottom: 35px;
+    }
+
+    .productsContainer {
+        gap: calc((100% - 30% * 3) / 2);
     }
 }
 
@@ -64,22 +80,31 @@
         width: 23%;
         margin-bottom: 30px;
     }
+
+    .productsContainer {
+        gap: calc((100% - 23% * 4) / 3);
+    }
 }
 
 @media (max-width: 800px) {
     .productLink {
         width: 30%;
     }
+
+    .productsContainer {
+        gap: calc((100% - 30% * 3) / 2);
+    }
 }
 
 @media (max-width: 700px) {
-    .productsContainer {
-        padding-bottom: 10px;
-    }
-
     .productLink {
         width: 31%;
         margin-bottom: 20px;
+    }
+
+    .productsContainer {
+        gap: calc((100% - 31% * 3) / 2);
+        padding-bottom: 10px;
     }
 }
 
@@ -88,11 +113,19 @@
         width: 48%;
         margin-bottom: 20px;
     }
+
+    .productsContainer {
+        gap: calc(100% - 48% * 2);
+    }
 }
 
 @media (max-width: 350px) {
     .productLink {
         width: 100%;
         margin-bottom: 20px;
+    }
+
+    .productsContainer {
+        gap: 0;
     }
 }
